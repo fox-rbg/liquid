@@ -628,26 +628,19 @@ function openModal(category, index) {
   const flavorBox = document.getElementById('modal-flavors');
 
   const liquidMap = [
-  { match: (n) => n.includes('Puffy') && n.includes('70'), id: 'puffy_70' },
-  { match: (n) => n.includes('Puffy'), id: 'puffy_50' },
-  { match: (n) => n.includes('Fumot'), id: 'fumot' },
-  { match: (n) => n.includes('Vozol'), id: 'vozol' },
-  { match: (n) => n.includes('Elf'), id: 'elf_liq' },
-  { match: (n) => n.includes('Yami'), id: 'yami' },
-];
+    { match: (n) => n.includes('Puffy') && n.includes('70'), id: 'puffy_70' },
+    { match: (n) => n.includes('Puffy'), id: 'puffy_50' },
+    { match: (n) => n.includes('Fumot'), id: 'fumot' },
+    { match: (n) => n.includes('Vozol'), id: 'vozol' },
+    { match: (n) => n.includes('Elf'), id: 'elf_liq' },
+    { match: (n) => n.includes('Yami'), id: 'yami' },
+  ];
 
-let availId = null;
-if (category === 'liquids') {
-  for (const row of liquidMap) {
-    if (row.match(p.name)) { availId = row.id; break; }
-  }
-}
   let availId = null;
   if (category === 'liquids') {
-    for (const [key, id] of Object.entries(liquidMap)) {
-      if (p.name.includes(key)) {
-        if (key === 'Puffy' && p.name.includes('70')) availId = 'puffy_70';
-        else availId = id;
+    for (const row of liquidMap) {
+      if (row.match(p.name)) {
+        availId = row.id;
         break;
       }
     }
