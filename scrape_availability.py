@@ -92,16 +92,10 @@ def scrape_flavors(page, url: str) -> list[str]:
         const out = [];
         document.querySelectorAll('select').forEach(sel => {
             Array.from(sel.options).forEach(o => {
+                if (o.disabled) return;
                 const t = (o.textContent || '').trim();
                 if (t) out.push(t);
             });
-        });
-        // fallback: opcje w listach Tilda
-        document.querySelectorAll(
-            '.t-product__option-item, [class*="js-product-option"], [data-product-variant-name]'
-        ).forEach(el => {
-            const t = (el.textContent || '').trim();
-            if (t) out.push(t);
         });
         return out;
     }"""
