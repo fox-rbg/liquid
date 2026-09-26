@@ -1,9 +1,7 @@
-#!/usr/bin/env python3
 """
-Scraper dostępności smaków liquidów
-Źródła: hype-smoke.store + aura-vape.store
-Uruchom: python scrape_availability.py
-Wymaga: pip install playwright && playwright install chromium
+Scraper dostepnosci smakow – BLUSH VAPE
+- Tylko PIERWSZY select na stronie (glowny produkt), nie listy z "Zobacz takze"
+- Tylko option BEZ disabled (czarne = dostepne, szare = nie)
 """
 
 import json
@@ -17,10 +15,9 @@ except ImportError:
     print("Zainstaluj: pip install playwright && playwright install chromium")
     raise
 
-# === KONFIGURACJA PRODUKTÓW ===
 PRODUCTS = {
     "fumot": {
-        "name": "Liquid Fumot 30ml 50mg",
+        "name": "Liquid Fumot 30ml 20mg",
         "sources": [
             {"shop": "hype-smoke", "url": "https://hype-smoke.store/tproduct/622768880854-liquid-fumot"},
         ],
@@ -33,7 +30,7 @@ PRODUCTS = {
         ],
     },
     "puffy_70": {
-        "name": "Liquid Puffy 30ml 70mg",
+        "name": "Liquid Puffy 30ml 70mg (NAJMOCNIEJSZY W POLSCE!!!)",
         "sources": [
             {"shop": "aura-vape", "url": "https://aura-vape.store/tproduct/707165590544-puffy-30ml-70mg"},
         ],
@@ -60,20 +57,14 @@ PRODUCTS = {
     },
 }
 
-# Smaki do pominięcia (placeholder / śmieci z selectów)
-SKIP = {
-    "", "smak", "wybierz", "select", "choose", "—", "-", "none",
-}
+SKIP = {"", "smak", "wybierz", "select", "choose", "—", "-", "none"}
 
 
 def normalize(name: str) -> str:
-    """Ujednolicenie nazwy smaku do porównań."""
-    n = name.strip()
-    n = re.sub(r"\s+", " ", n)
-    # popraw częste literówki
+    n = re.sub(r"\s+", " ", name.strip())
     n = n.replace("Pineaple", "Pineapple")
     n = n.replace("Bueberry", "Blueberry")
-    n = n.replace("Сherry", "Cherry")  # cyrylica C
+    n = n.replace("Сherry", "Cherry")
     n = n.replace("Сranberry", "Cranberry")
     return n
 
@@ -82,34 +73,35 @@ def normalize_key(name: str) -> str:
     return normalize(name).lower()
 
 
-def scrape_flavors(page, url: str) -> list[str]:
-    """Pobiera listę smaków z selectów na stronie produktu (Tilda)."""
+def scrape_flavors(page, url: str) -> list:
     page.goto(url, wait_until="domcontentloaded", timeout=60000)
-    page.wait_for_timeout(2500)
+    page.wait_for_timeout(3000)
 
     flavors = page.evaluate(
         """() => {
+        // TYLKO PIERWSZY select = smaki tego produktu (nie Yami/Puffy pod spodem)
+        const selects = Array.from(document.querySelectorAll('select'));
+        if (!selects.length) return [];
+        const sel = selects[0];
         const out = [];
-        document.querySelectorAll('select').forEach(sel => {
-            Array.from(sel.options).forEach(o => {
-                if (o.disabled) return;
-                const t = (o.textContent || '').trim();
-                if (t) out.push(t);
-            });
+        Array.from(sel.options).forEach(o => {
+            if (o.disabled) return;
+            if (o.getAttribute('disabled') !== null) return;
+            const t = (o.textContent || '').trim();
+            if (!t || t.length > 55) return;
+            const low = t.toLowerCase();
+            if (['smak', 'wybierz', 'select', 'choose', '—', '-'].includes(low)) return;
+            out.push(t);
         });
         return out;
     }"""
     )
 
-    cleaned = []
-    seen = set()
+    cleaned, seen = [], set()
     for f in flavors:
         n = normalize(f)
         k = normalize_key(n)
         if k in SKIP or len(k) < 2:
-            continue
-        # odrzuć sklejone listy (czasem Tilda wrzuca wszystko w jedną opcję)
-        if len(n) > 80 or n.count(" ") > 12:
             continue
         if k not in seen:
             seen.add(k)
@@ -118,7 +110,7 @@ def scrape_flavors(page, url: str) -> list[str]:
 
 
 def main():
-    out_path = Path(__file__).parent / "availability.json"
+    out_path = Path.cwd() / "availability.json"
     result = {
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "products": {},
@@ -129,8 +121,7 @@ def main():
         context = browser.new_context(
             user_agent=(
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/120.0.0.0 Safari/537.36"
+                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
             )
         )
         page = context.new_page()
@@ -139,80 +130,47 @@ def main():
             print(f"\n=== {meta['name']} ===")
             by_shop = {}
             all_keys = set()
+            key_to_name = {}
 
             for src in meta["sources"]:
                 shop, url = src["shop"], src["url"]
                 try:
                     flavors = scrape_flavors(page, url)
-                    print(f"  [{shop}] {len(flavors)} smaków")
+                    print(f"  [{shop}] {len(flavors)} dostepnych:")
+                    for fl in flavors:
+                        print(f"      - {fl}")
                     by_shop[shop] = flavors
-                    all_keys.update(normalize_key(f) for f in flavors)
+                    for f in flavors:
+                        k = normalize_key(f)
+                        all_keys.add(k)
+                        key_to_name.setdefault(k, f)
                 except Exception as e:
-                    print(f"  [{shop}] BŁĄD: {e}")
+                    print(f"  [{shop}] BLAD: {e}")
                     by_shop[shop] = []
 
-            # mapa canonical name
-            key_to_name = {}
-            for flavors in by_shop.values():
-                for f in flavors:
-                    k = normalize_key(f)
-                    if k not in key_to_name:
-                        key_to_name[k] = f
-
-            available = []
-            unavailable = []  # uzupełniane przy porównywaniu z poprzednim plikiem
-
-            # dostępne = obecne na co najmniej jednym sklepie
-            for k in sorted(all_keys):
-                shops = [
-                    s for s, fl in by_shop.items()
-                    if any(normalize_key(x) == k for x in fl)
-                ]
-                available.append(
-                    {
-                        "name": key_to_name[k],
-                        "shops": shops,
-                    }
-                )
+            available = [
+                {
+                    "name": key_to_name[k],
+                    "shops": [
+                        s for s, fl in by_shop.items()
+                        if any(normalize_key(x) == k for x in fl)
+                    ],
+                }
+                for k in sorted(all_keys)
+            ]
 
             result["products"][pid] = {
                 "name": meta["name"],
                 "sources": meta["sources"],
                 "available": available,
-                "unavailable": unavailable,  # uzupełniane przy porównywaniu z poprzednim plikiem
+                "unavailable": [],
                 "by_shop": by_shop,
             }
 
         browser.close()
 
-    # Porównaj z poprzednim plikiem → smaki które zniknęły = niedostępne
-    if out_path.exists():
-        try:
-            old = json.loads(out_path.read_text(encoding="utf-8"))
-            for pid, pdata in result["products"].items():
-                old_p = old.get("products", {}).get(pid, {})
-                old_names = set()
-                for a in old_p.get("available", []):
-                    old_names.add(normalize_key(a["name"] if isinstance(a, dict) else a))
-                for u in old_p.get("unavailable", []):
-                    old_names.add(normalize_key(u["name"] if isinstance(u, dict) else u))
-                current = {normalize_key(a["name"]) for a in pdata["available"]}
-                gone = old_names - current
-                # zachowaj nazwy z old
-                name_map = {}
-                for lst in (old_p.get("available", []), old_p.get("unavailable", [])):
-                    for item in lst:
-                        n = item["name"] if isinstance(item, dict) else item
-                        name_map[normalize_key(n)] = n
-                pdata["unavailable"] = [
-                    {"name": name_map.get(k, k), "shops": []} for k in sorted(gone)
-                ]
-        except Exception as e:
-            print("Nie udało się porównać z poprzednim plikiem:", e)
-
     out_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\nZapisano: {out_path}")
-    print(f"Czas: {result['updated_at']}")
 
 
 if __name__ == "__main__":
