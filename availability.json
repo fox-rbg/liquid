@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-26T15:18:43.208018+00:00",
+  "updated_at": "2026-09-27T10:23:53.639443+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -293,25 +293,7 @@
           ]
         },
         {
-          "name": "Berry Cherry Cocktail",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Raspberry Watermelon",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
           "name": "Strawberry Lime",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Strawberry Watermelon",
           "shops": [
             "aura-vape"
           ]
@@ -327,10 +309,7 @@
       "by_shop": {
         "aura-vape": [
           "Banana cherry",
-          "Berry Cherry Cocktail",
-          "Raspberry Watermelon",
           "Strawberry Lime",
-          "Strawberry Watermelon",
           "Watermelon Bubble Gum"
         ]
       }
@@ -494,8 +473,7 @@
         {
           "name": "Love 777",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -699,7 +677,6 @@
           "Watermelon Ice",
           "Lavafire",
           "Lemon Lime",
-          "Love 777",
           "Frozen Grape Soda",
           "Cherry Vanilla Cream",
           "White Peach Jasmine",
