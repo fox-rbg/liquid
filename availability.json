@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-27T10:23:53.639443+00:00",
+  "updated_at": "2026-09-28T11:29:17.263596+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -285,33 +285,10 @@
           "url": "https://aura-vape.store/tproduct/707165590544-puffy-30ml-70mg"
         }
       ],
-      "available": [
-        {
-          "name": "Banana cherry",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Strawberry Lime",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Watermelon Bubble Gum",
-          "shops": [
-            "aura-vape"
-          ]
-        }
-      ],
+      "available": [],
       "unavailable": [],
       "by_shop": {
-        "aura-vape": [
-          "Banana cherry",
-          "Strawberry Lime",
-          "Watermelon Bubble Gum"
-        ]
+        "aura-vape": []
       }
     },
     "vozol": {
@@ -370,8 +347,7 @@
         {
           "name": "Blueberry ice",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -654,7 +630,6 @@
         "aura-vape": [
           "Berry",
           "Berry Peach",
-          "Blueberry Ice",
           "Blueberry Watermelon",
           "Blue Raspberry",
           "Blue Razz Lemon",
