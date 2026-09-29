@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-28T11:29:17.263596+00:00",
+  "updated_at": "2026-09-29T11:10:24.172675+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -10,6 +10,12 @@
         }
       ],
       "available": [
+        {
+          "name": "Blueberry Cherry Cranberry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
         {
           "name": "Peach Mango",
           "shops": [
@@ -38,6 +44,7 @@
       "unavailable": [],
       "by_shop": {
         "hype-smoke": [
+          "Blueberry Cherry Cranberry",
           "Peach Mango",
           "Strawberry Banana",
           "Strawberry Ice",
@@ -285,10 +292,26 @@
           "url": "https://aura-vape.store/tproduct/707165590544-puffy-30ml-70mg"
         }
       ],
-      "available": [],
+      "available": [
+        {
+          "name": "Berry Cherry Cocktail",
+          "shops": [
+            "aura-vape"
+          ]
+        },
+        {
+          "name": "Strawberry Lime",
+          "shops": [
+            "aura-vape"
+          ]
+        }
+      ],
       "unavailable": [],
       "by_shop": {
-        "aura-vape": []
+        "aura-vape": [
+          "Berry Cherry Cocktail",
+          "Strawberry Lime"
+        ]
       }
     },
     "vozol": {
@@ -347,7 +370,8 @@
         {
           "name": "Blueberry ice",
           "shops": [
-            "hype-smoke"
+            "hype-smoke",
+            "aura-vape"
           ]
         },
         {
@@ -449,13 +473,13 @@
         {
           "name": "Love 777",
           "shops": [
-            "hype-smoke"
+            "hype-smoke",
+            "aura-vape"
           ]
         },
         {
-          "name": "Lychee mint",
+          "name": "Lychee Mint",
           "shops": [
-            "hype-smoke",
             "aura-vape"
           ]
         },
@@ -623,13 +647,13 @@
           "Blue catton candy",
           "Cola Gummies",
           "Lemon Grapefruit",
-          "Lychee mint",
           "Grape cherry",
           "Vanilla Cream Tabacco"
         ],
         "aura-vape": [
           "Berry",
           "Berry Peach",
+          "Blueberry Ice",
           "Blueberry Watermelon",
           "Blue Raspberry",
           "Blue Razz Lemon",
@@ -652,6 +676,7 @@
           "Watermelon Ice",
           "Lavafire",
           "Lemon Lime",
+          "Love 777",
           "Frozen Grape Soda",
           "Cherry Vanilla Cream",
           "White Peach Jasmine",
@@ -728,6 +753,12 @@
           "name": "Blue Razz Cherry",
           "shops": [
             "hype-smoke",
+            "aura-vape"
+          ]
+        },
+        {
+          "name": "Blue Razz Ice",
+          "shops": [
             "aura-vape"
           ]
         },
@@ -1171,6 +1202,7 @@
           "Blueberry raspberry pomegranate",
           "Blueberry rose mint",
           "Blueberry sour raspberry",
+          "Blue Razz Ice",
           "Blue razz lemonade",
           "Cherry",
           "Cherry Cola",
