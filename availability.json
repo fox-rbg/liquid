@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-29T11:10:24.172675+00:00",
+  "updated_at": "2026-09-30T10:56:03.389148+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -294,13 +294,7 @@
       ],
       "available": [
         {
-          "name": "Berry Cherry Cocktail",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Strawberry Lime",
+          "name": "Banana cherry",
           "shops": [
             "aura-vape"
           ]
@@ -309,8 +303,7 @@
       "unavailable": [],
       "by_shop": {
         "aura-vape": [
-          "Berry Cherry Cocktail",
-          "Strawberry Lime"
+          "Banana cherry"
         ]
       }
     },
