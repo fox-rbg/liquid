@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-30T10:56:03.389148+00:00",
+  "updated_at": "2026-10-01T11:25:25.190800+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -10,12 +10,6 @@
         }
       ],
       "available": [
-        {
-          "name": "Blueberry Cherry Cranberry",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
         {
           "name": "Peach Mango",
           "shops": [
@@ -44,7 +38,6 @@
       "unavailable": [],
       "by_shop": {
         "hype-smoke": [
-          "Blueberry Cherry Cranberry",
           "Peach Mango",
           "Strawberry Banana",
           "Strawberry Ice",
@@ -294,7 +287,7 @@
       ],
       "available": [
         {
-          "name": "Banana cherry",
+          "name": "Strawberry Lime",
           "shops": [
             "aura-vape"
           ]
@@ -303,7 +296,7 @@
       "unavailable": [],
       "by_shop": {
         "aura-vape": [
-          "Banana cherry"
+          "Strawberry Lime"
         ]
       }
     },
@@ -466,7 +459,6 @@
         {
           "name": "Love 777",
           "shops": [
-            "hype-smoke",
             "aura-vape"
           ]
         },
@@ -479,7 +471,6 @@
         {
           "name": "Mint ice",
           "shops": [
-            "hype-smoke",
             "aura-vape"
           ]
         },
@@ -616,8 +607,6 @@
           "Kiwi Passion Fruit Guava",
           "Lava Fire",
           "Lemon lime",
-          "Love 777",
-          "Mint ice",
           "Mixed Berries",
           "Peach ice",
           "Peach mango watermelon",
@@ -848,7 +837,6 @@
         {
           "name": "Cool mint",
           "shops": [
-            "hype-smoke",
             "aura-vape"
           ]
         },
@@ -1146,7 +1134,6 @@
           "Cherry cola",
           "Cherry lemon peach",
           "Cola",
-          "Cool mint",
           "Double apple",
           "Elf jack",
           "Elfbull ice",
