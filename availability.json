@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-01T11:25:25.190800+00:00",
+  "updated_at": "2026-10-02T10:54:45.045415+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -10,6 +10,12 @@
         }
       ],
       "available": [
+        {
+          "name": "Kiwi Passion Fruit Guava",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
         {
           "name": "Peach Mango",
           "shops": [
@@ -38,6 +44,7 @@
       "unavailable": [],
       "by_shop": {
         "hype-smoke": [
+          "Kiwi Passion Fruit Guava",
           "Peach Mango",
           "Strawberry Banana",
           "Strawberry Ice",
@@ -136,8 +143,7 @@
         {
           "name": "Grape Melon",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -268,7 +274,6 @@
         ],
         "aura-vape": [
           "Berri kiwi",
-          "Grape Melon",
           "Pineapple coconut",
           "Cola orange",
           "Turbo mint",
@@ -285,19 +290,10 @@
           "url": "https://aura-vape.store/tproduct/707165590544-puffy-30ml-70mg"
         }
       ],
-      "available": [
-        {
-          "name": "Strawberry Lime",
-          "shops": [
-            "aura-vape"
-          ]
-        }
-      ],
+      "available": [],
       "unavailable": [],
       "by_shop": {
-        "aura-vape": [
-          "Strawberry Lime"
-        ]
+        "aura-vape": []
       }
     },
     "vozol": {
@@ -342,22 +338,19 @@
         {
           "name": "Blue raspberry",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Blue Razz Lemon",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Blueberry ice",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -405,8 +398,7 @@
         {
           "name": "Frozen Grape Soda",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -419,15 +411,13 @@
         {
           "name": "Grape ice",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Kiwi Passion Fruit Guava",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -453,18 +443,6 @@
           "name": "Lemon lime",
           "shops": [
             "hype-smoke",
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Love 777",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Lychee Mint",
-          "shops": [
             "aura-vape"
           ]
         },
@@ -635,14 +613,9 @@
         "aura-vape": [
           "Berry",
           "Berry Peach",
-          "Blueberry Ice",
           "Blueberry Watermelon",
-          "Blue Raspberry",
-          "Blue Razz Lemon",
           "Cherry Cola",
           "Dragon Fruit Banana Cherry",
-          "Grape Ice",
-          "Kiwi Passion Fruit Guava",
           "Peach Ice",
           "Peach Mango Watermelon",
           "Perfume Lemon",
@@ -658,15 +631,12 @@
           "Watermelon Ice",
           "Lavafire",
           "Lemon Lime",
-          "Love 777",
-          "Frozen Grape Soda",
           "Cherry Vanilla Cream",
           "White Peach Jasmine",
           "Cherry lemon peach",
           "Watermelon Plum",
           "Cola Gummies",
           "Lemon Grapefruit",
-          "Lychee Mint",
           "Blue Cotton Candy",
           "Grape cherry",
           "Mint ice"
@@ -696,8 +666,7 @@
         {
           "name": "Apple pear",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -739,12 +708,6 @@
           ]
         },
         {
-          "name": "Blue Razz Ice",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
           "name": "Blue razz lemonade",
           "shops": [
             "hype-smoke",
@@ -765,19 +728,7 @@
           ]
         },
         {
-          "name": "Blueberry raspberry pomegranate",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
           "name": "Blueberry rose mint",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Blueberry sour raspberry",
           "shops": [
             "aura-vape"
           ]
@@ -896,12 +847,6 @@
           ]
         },
         {
-          "name": "Kiwi passion fruit guava",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
           "name": "Kiwi passion guava",
           "shops": [
             "hype-smoke"
@@ -993,8 +938,7 @@
         {
           "name": "Raspberry lychee",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -1010,16 +954,9 @@
           ]
         },
         {
-          "name": "Sour apple",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
           "name": "Sour watermelon gummy",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -1176,13 +1113,9 @@
         ],
         "aura-vape": [
           "Apple peach",
-          "Apple pear",
           "Blackberry Lemon",
           "Blueberry",
-          "Blueberry raspberry pomegranate",
           "Blueberry rose mint",
-          "Blueberry sour raspberry",
-          "Blue Razz Ice",
           "Blue razz lemonade",
           "Cherry",
           "Cherry Cola",
@@ -1195,7 +1128,6 @@
           "Grape cherry",
           "Green grape rose",
           "Jasmine raspberry",
-          "Kiwi passion fruit guava",
           "Lemon Lime",
           "Peach ice",
           "Pina colada",
@@ -1204,9 +1136,6 @@
           "Pink grapefruit",
           "Pink lemonade",
           "Pink lemonade soda",
-          "Raspberry lychee",
-          "Sour apple",
-          "Sour watermelon gummy",
           "Spearmint",
           "Strawberry banana",
           "Strawberry cherry lemon",
