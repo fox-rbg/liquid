@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-02T10:54:45.045415+00:00",
+  "updated_at": "2026-10-03T10:14:30.902243+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -81,8 +81,7 @@
         {
           "name": "Berri kiwi",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -273,7 +272,6 @@
           "Sour strawberry"
         ],
         "aura-vape": [
-          "Berri kiwi",
           "Pineapple coconut",
           "Cola orange",
           "Turbo mint",
@@ -461,8 +459,7 @@
         {
           "name": "Peach ice",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -616,7 +613,6 @@
           "Blueberry Watermelon",
           "Cherry Cola",
           "Dragon Fruit Banana Cherry",
-          "Peach Ice",
           "Peach Mango Watermelon",
           "Perfume Lemon",
           "Pineapple Passion Fruit Lime",
