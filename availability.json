@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-03T10:14:30.902243+00:00",
+  "updated_at": "2026-10-04T10:57:08.117550+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -68,8 +68,7 @@
         {
           "name": "Apple Grape Blueberry",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -275,7 +274,6 @@
           "Pineapple coconut",
           "Cola orange",
           "Turbo mint",
-          "Apple Grape blueberry",
           "Rose milk"
         ]
       }
@@ -817,8 +815,7 @@
         {
           "name": "Grape",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -885,8 +882,7 @@
         {
           "name": "Peach ice",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -1120,12 +1116,10 @@
           "Cool mint",
           "Elfbull ice",
           "Elf jack",
-          "Grape",
           "Grape cherry",
           "Green grape rose",
           "Jasmine raspberry",
           "Lemon Lime",
-          "Peach ice",
           "Pina colada",
           "Pineapple colada",
           "Pineapple ice",
