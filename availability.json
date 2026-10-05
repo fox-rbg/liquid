@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-04T10:57:08.117550+00:00",
+  "updated_at": "2026-10-05T12:05:03.088061+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -11,31 +11,7 @@
       ],
       "available": [
         {
-          "name": "Kiwi Passion Fruit Guava",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Peach Mango",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Strawberry Banana",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Strawberry Ice",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Strawberry Watermelon",
           "shops": [
             "hype-smoke"
           ]
@@ -44,11 +20,7 @@
       "unavailable": [],
       "by_shop": {
         "hype-smoke": [
-          "Kiwi Passion Fruit Guava",
-          "Peach Mango",
-          "Strawberry Banana",
-          "Strawberry Ice",
-          "Strawberry Watermelon"
+          "Strawberry Banana"
         ]
       }
     },
@@ -219,12 +191,6 @@
           ]
         },
         {
-          "name": "Tropical Fruits",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Turbo mint",
           "shops": [
             "hype-smoke",
@@ -251,7 +217,6 @@
           "Watermelon Bubble gum",
           "Raspberry Watermelon",
           "Cranberry Grape",
-          "Tropical Fruits",
           "Grape Melon",
           "Cherry Ice",
           "Berry Cherry Cocktail",
@@ -406,12 +371,6 @@
         },
         {
           "name": "Grape ice",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Kiwi Passion Fruit Guava",
           "shops": [
             "hype-smoke"
           ]
@@ -577,7 +536,6 @@
           "Cherry cola",
           "Dragon fruit banana cherry",
           "Grape ice",
-          "Kiwi Passion Fruit Guava",
           "Lava Fire",
           "Lemon lime",
           "Mixed Berries",
@@ -672,8 +630,7 @@
         {
           "name": "Blackberry lemon",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -704,8 +661,7 @@
         {
           "name": "Blue razz lemonade",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -782,6 +738,7 @@
         {
           "name": "Cool mint",
           "shops": [
+            "hype-smoke",
             "aura-vape"
           ]
         },
@@ -848,8 +805,7 @@
         {
           "name": "Lemon lime",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -882,7 +838,8 @@
         {
           "name": "Peach ice",
           "shops": [
-            "hype-smoke"
+            "hype-smoke",
+            "aura-vape"
           ]
         },
         {
@@ -916,8 +873,7 @@
         {
           "name": "Pink lemonade",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -1063,6 +1019,7 @@
           "Cherry cola",
           "Cherry lemon peach",
           "Cola",
+          "Cool mint",
           "Double apple",
           "Elf jack",
           "Elfbull ice",
@@ -1105,10 +1062,8 @@
         ],
         "aura-vape": [
           "Apple peach",
-          "Blackberry Lemon",
           "Blueberry",
           "Blueberry rose mint",
-          "Blue razz lemonade",
           "Cherry",
           "Cherry Cola",
           "Cherry lemon peach",
@@ -1119,12 +1074,11 @@
           "Grape cherry",
           "Green grape rose",
           "Jasmine raspberry",
-          "Lemon Lime",
+          "Peach ice",
           "Pina colada",
           "Pineapple colada",
           "Pineapple ice",
           "Pink grapefruit",
-          "Pink lemonade",
           "Pink lemonade soda",
           "Spearmint",
           "Strawberry banana",
