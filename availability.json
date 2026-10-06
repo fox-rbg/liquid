@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-05T12:05:03.088061+00:00",
+  "updated_at": "2026-10-06T11:49:59.494874+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -457,8 +457,7 @@
         {
           "name": "Sour Apple Ice",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -519,8 +518,7 @@
         {
           "name": "White Peach Jasmine",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         }
       ],
@@ -574,7 +572,6 @@
           "Pineapple Passion Fruit Lime",
           "Pomegranate Lemonade",
           "Purple Candy",
-          "Sour Apple Ice",
           "Strawberry Ice",
           "Strawberry Ice Cream",
           "Strawberry Kiwi",
@@ -584,7 +581,6 @@
           "Lavafire",
           "Lemon Lime",
           "Cherry Vanilla Cream",
-          "White Peach Jasmine",
           "Cherry lemon peach",
           "Watermelon Plum",
           "Cola Gummies",
@@ -838,8 +834,7 @@
         {
           "name": "Peach ice",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -1074,7 +1069,6 @@
           "Grape cherry",
           "Green grape rose",
           "Jasmine raspberry",
-          "Peach ice",
           "Pina colada",
           "Pineapple colada",
           "Pineapple ice",
