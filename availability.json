@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-06T11:49:59.494874+00:00",
+  "updated_at": "2026-10-07T11:34:08.742134+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -273,15 +273,13 @@
         {
           "name": "Berry",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Berry Peach",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -352,8 +350,7 @@
         {
           "name": "Dragon fruit banana cherry",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -365,8 +362,7 @@
         {
           "name": "Grape cherry",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -443,8 +439,7 @@
         {
           "name": "Pomegranate Lemonade",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -463,8 +458,7 @@
         {
           "name": "Strawberry ice",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -562,17 +556,12 @@
           "Vanilla Cream Tabacco"
         ],
         "aura-vape": [
-          "Berry",
-          "Berry Peach",
           "Blueberry Watermelon",
           "Cherry Cola",
-          "Dragon Fruit Banana Cherry",
           "Peach Mango Watermelon",
           "Perfume Lemon",
           "Pineapple Passion Fruit Lime",
-          "Pomegranate Lemonade",
           "Purple Candy",
-          "Strawberry Ice",
           "Strawberry Ice Cream",
           "Strawberry Kiwi",
           "Strawberry Watermelon",
@@ -586,7 +575,6 @@
           "Cola Gummies",
           "Lemon Grapefruit",
           "Blue Cotton Candy",
-          "Grape cherry",
           "Mint ice"
         ]
       }
@@ -607,8 +595,7 @@
         {
           "name": "Apple Peach",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -938,8 +925,7 @@
         {
           "name": "Strawberry kiwi",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -1056,7 +1042,6 @@
           "Fizzy Cherry"
         ],
         "aura-vape": [
-          "Apple peach",
           "Blueberry",
           "Blueberry rose mint",
           "Cherry",
@@ -1078,7 +1063,6 @@
           "Strawberry banana",
           "Strawberry cherry lemon",
           "Strawberry Ice",
-          "Strawberry kiwi",
           "Strawberry raspberry cherry ice",
           "Strawberry snoow",
           "Watermelon",
