@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-07T11:34:08.742134+00:00",
+  "updated_at": "2026-10-08T11:49:02.202815+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -315,8 +315,7 @@
         {
           "name": "Blueberry Watermelon",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -393,14 +392,7 @@
         {
           "name": "Lemon lime",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Mint ice",
-          "shops": [
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -556,7 +548,6 @@
           "Vanilla Cream Tabacco"
         ],
         "aura-vape": [
-          "Blueberry Watermelon",
           "Cherry Cola",
           "Peach Mango Watermelon",
           "Perfume Lemon",
@@ -568,14 +559,12 @@
           "Watermelon Bubble Gum",
           "Watermelon Ice",
           "Lavafire",
-          "Lemon Lime",
           "Cherry Vanilla Cream",
           "Cherry lemon peach",
           "Watermelon Plum",
           "Cola Gummies",
           "Lemon Grapefruit",
-          "Blue Cotton Candy",
-          "Mint ice"
+          "Blue Cotton Candy"
         ]
       }
     },
@@ -595,7 +584,8 @@
         {
           "name": "Apple Peach",
           "shops": [
-            "hype-smoke"
+            "hype-smoke",
+            "aura-vape"
           ]
         },
         {
@@ -650,20 +640,13 @@
         {
           "name": "Blueberry",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Blueberry Cherry Cranberry",
           "shops": [
             "hype-smoke"
-          ]
-        },
-        {
-          "name": "Blueberry rose mint",
-          "shops": [
-            "aura-vape"
           ]
         },
         {
@@ -694,8 +677,7 @@
         {
           "name": "Cherry cola",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -801,8 +783,7 @@
         {
           "name": "Mr.Blue",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -827,8 +808,7 @@
         {
           "name": "Pina colada",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -848,8 +828,7 @@
         {
           "name": "Pink grapefruit",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -970,8 +949,7 @@
         {
           "name": "Watermelon",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -1042,10 +1020,8 @@
           "Fizzy Cherry"
         ],
         "aura-vape": [
-          "Blueberry",
-          "Blueberry rose mint",
+          "Apple peach",
           "Cherry",
-          "Cherry Cola",
           "Cherry lemon peach",
           "Cola",
           "Cool mint",
@@ -1054,10 +1030,8 @@
           "Grape cherry",
           "Green grape rose",
           "Jasmine raspberry",
-          "Pina colada",
           "Pineapple colada",
           "Pineapple ice",
-          "Pink grapefruit",
           "Pink lemonade soda",
           "Spearmint",
           "Strawberry banana",
@@ -1065,13 +1039,11 @@
           "Strawberry Ice",
           "Strawberry raspberry cherry ice",
           "Strawberry snoow",
-          "Watermelon",
           "Watermelon cherry",
           "Blackcurrant Menthol",
           "Blue Razz Cherry",
           "Fizzy Cherry",
           "Lemon Sherbet",
-          "Mr.Blue",
           "Ocean Mint",
           "Strawberry Razz Lemonade",
           "Strawberry Watermelon",
