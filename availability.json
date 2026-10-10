@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-09T11:41:19.439629+00:00",
+  "updated_at": "2026-10-10T10:58:35.780577+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -88,8 +88,7 @@
         {
           "name": "Cola Orange",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -230,7 +229,6 @@
         ],
         "aura-vape": [
           "Pineapple coconut",
-          "Cola orange",
           "Turbo mint",
           "Rose milk"
         ]
@@ -371,8 +369,7 @@
         {
           "name": "Lemon Grapefruit",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -410,8 +407,7 @@
         {
           "name": "Pineapple passion fruit lime",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -423,8 +419,7 @@
         {
           "name": "Purple candy",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -527,8 +522,6 @@
           "Cherry Cola",
           "Peach Mango Watermelon",
           "Perfume Lemon",
-          "Pineapple Passion Fruit Lime",
-          "Purple Candy",
           "Strawberry Ice Cream",
           "Watermelon Bubble Gum",
           "Watermelon Ice",
@@ -536,7 +529,6 @@
           "Cherry Vanilla Cream",
           "Watermelon Plum",
           "Cola Gummies",
-          "Lemon Grapefruit",
           "Blue Cotton Candy"
         ]
       }
