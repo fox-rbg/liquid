@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T10:58:35.780577+00:00",
+  "updated_at": "2026-10-11T11:15:50.118773+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -280,12 +280,6 @@
           ]
         },
         {
-          "name": "Blue Cotton Candy",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
           "name": "Blue raspberry",
           "shops": [
             "hype-smoke"
@@ -393,8 +387,7 @@
         {
           "name": "Peach mango watermelon",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -456,8 +449,7 @@
         {
           "name": "Watermelon Bubble Gum",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -520,16 +512,13 @@
         ],
         "aura-vape": [
           "Cherry Cola",
-          "Peach Mango Watermelon",
           "Perfume Lemon",
           "Strawberry Ice Cream",
-          "Watermelon Bubble Gum",
           "Watermelon Ice",
           "Lavafire",
           "Cherry Vanilla Cream",
           "Watermelon Plum",
-          "Cola Gummies",
-          "Blue Cotton Candy"
+          "Cola Gummies"
         ]
       }
     },
@@ -678,8 +667,7 @@
         {
           "name": "Cherry lemon peach",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -755,12 +743,6 @@
           "name": "Jasmine raspberry",
           "shops": [
             "hype-smoke",
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Kiwi passion fruit guava",
-          "shops": [
             "aura-vape"
           ]
         },
@@ -1049,7 +1031,6 @@
           "Blue razz lemonade",
           "Cherry",
           "Cherry Cola",
-          "Cherry lemon peach",
           "Cola",
           "Cool mint",
           "Elfbull ice",
@@ -1058,7 +1039,6 @@
           "Grape cherry",
           "Green grape rose",
           "Jasmine raspberry",
-          "Kiwi passion fruit guava",
           "Lemon Lime",
           "Peach ice",
           "Pineapple colada",
