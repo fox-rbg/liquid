@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-12T12:48:32.941760+00:00",
+  "updated_at": "2026-10-13T12:29:38.909622+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -306,8 +306,7 @@
         {
           "name": "Cherry cola",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -331,19 +330,7 @@
           ]
         },
         {
-          "name": "Dragon fruit banana cherry",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Grape cherry",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Grape ice",
           "shops": [
             "hype-smoke"
           ]
@@ -361,12 +348,6 @@
           ]
         },
         {
-          "name": "Lemon Grapefruit",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Lemon lime",
           "shops": [
             "hype-smoke"
@@ -374,12 +355,6 @@
         },
         {
           "name": "Mixed Berries",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Peach ice",
           "shops": [
             "hype-smoke"
           ]
@@ -399,12 +374,6 @@
         },
         {
           "name": "Pineapple passion fruit lime",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Pomegranate Lemonade",
           "shops": [
             "hype-smoke"
           ]
@@ -483,16 +452,12 @@
           "Blueberry ice",
           "Blueberry Watermelon",
           "Cherry cola",
-          "Dragon fruit banana cherry",
-          "Grape ice",
           "Lava Fire",
           "Lemon lime",
           "Mixed Berries",
-          "Peach ice",
           "Peach mango watermelon",
           "Perfume Lemon",
           "Pineapple passion fruit lime",
-          "Pomegranate Lemonade",
           "Purple candy",
           "Strawberry kiwi",
           "Strawberry ice",
@@ -506,12 +471,10 @@
           "Watermelon Plum",
           "Blue catton candy",
           "Cola Gummies",
-          "Lemon Grapefruit",
           "Grape cherry",
           "Vanilla Cream Tabacco"
         ],
         "aura-vape": [
-          "Cherry Cola",
           "Perfume Lemon",
           "Strawberry Ice Cream",
           "Watermelon Ice",
@@ -611,12 +574,6 @@
           "name": "Blueberry Cherry Cranberry",
           "shops": [
             "hype-smoke",
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Blueberry raspberry pomegranate",
-          "shops": [
             "aura-vape"
           ]
         },
@@ -755,8 +712,7 @@
         {
           "name": "Lemon lime",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -1024,7 +980,6 @@
           "Apple pear",
           "Blackberry Lemon",
           "Blueberry",
-          "Blueberry raspberry pomegranate",
           "Blueberry rose mint",
           "Blueberry sour raspberry",
           "Blue Razz Ice",
@@ -1039,7 +994,6 @@
           "Grape cherry",
           "Green grape rose",
           "Jasmine raspberry",
-          "Lemon Lime",
           "Peach ice",
           "Pineapple colada",
           "Pineapple ice",
@@ -1112,12 +1066,6 @@
           ]
         },
         {
-          "name": "Grape Energy",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Jasmine Raspberry",
           "shops": [
             "hype-smoke"
@@ -1143,12 +1091,6 @@
         },
         {
           "name": "Pistachio Cream",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Red Mojito",
           "shops": [
             "hype-smoke"
           ]
@@ -1192,13 +1134,11 @@
           "Cherry Ice",
           "Coconut Candy",
           "Dragon Fruit Banana Cherry",
-          "Grape Energy",
           "Jasmine Raspberry",
           "Lemon Lime",
           "Love 777",
           "Pink Lemonade",
           "Pistachio Cream",
-          "Red Mojito",
           "Spearmint",
           "Strawberry Banana",
           "Strawberry Raspberry Cherry Ice",
