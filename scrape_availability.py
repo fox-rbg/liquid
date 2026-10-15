@@ -55,6 +55,13 @@ PRODUCTS = {
             {"shop": "hype-smoke", "url": "https://hype-smoke.store/tproduct/412427828174-liquid-yami"},
         ],
     },
+        "oxva": {
+        "name": "Liquid OXVA 30ml 20mg",
+        "sources": [
+            {"shop": "hype-smoke", "url": "https://hype-smoke.store/tproduct/229770717344-liquid-oxva"},
+        ],
+    },
+    },
 }
 
 SKIP = {"", "smak", "wybierz", "select", "choose", "—", "-", "none"}
