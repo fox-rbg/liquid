@@ -621,14 +621,15 @@ function openModal(category, index) {
 
   const flavorBox = document.getElementById('modal-flavors');
 
-  const liquidMap = [
-    { match: (n) => n.includes('Puffy') && n.includes('70'), id: 'puffy_70' },
-    { match: (n) => n.includes('Puffy'), id: 'puffy_50' },
-    { match: (n) => n.includes('Fumot'), id: 'fumot' },
-    { match: (n) => n.includes('Vozol'), id: 'vozol' },
-    { match: (n) => n.includes('Elf'), id: 'elf_liq' },
-    { match: (n) => n.includes('Yami'), id: 'yami' },
-  ];
+const liquidMap = [
+  { match: (n) => n.includes('Puffy') && n.includes('70'), id: 'puffy_70' },
+  { match: (n) => n.includes('Puffy'), id: 'puffy_50' },
+  { match: (n) => n.includes('Fumot'), id: 'fumot' },
+  { match: (n) => n.includes('Vozol'), id: 'vozol' },
+  { match: (n) => n.includes('Elf'), id: 'elf_liq' },
+  { match: (n) => n.includes('Yami'), id: 'yami' },
+  { match: (n) => n.includes('OXVA') || n.includes('Oxva'), id: 'oxva' },
+];
 
   let availId = null;
   if (category === 'liquids') {
