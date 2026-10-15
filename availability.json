@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14T09:57:08.867304+00:00",
+  "updated_at": "2026-10-15T09:38:40.920115+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -378,7 +378,8 @@
         {
           "name": "Pineapple passion fruit lime",
           "shops": [
-            "hype-smoke"
+            "hype-smoke",
+            "aura-vape"
           ]
         },
         {
@@ -427,8 +428,7 @@
         {
           "name": "Watermelon ice",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -480,8 +480,8 @@
         "aura-vape": [
           "Peach Mango Watermelon",
           "Perfume Lemon",
+          "Pineapple Passion Fruit Lime",
           "Strawberry Ice Cream",
-          "Watermelon Ice",
           "Lavafire",
           "Cherry Vanilla Cream",
           "Watermelon Plum",
@@ -505,8 +505,7 @@
         {
           "name": "Apple Peach",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -578,12 +577,6 @@
           "name": "Blueberry Cherry Cranberry",
           "shops": [
             "hype-smoke",
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Blueberry raspberry pomegranate",
-          "shops": [
             "aura-vape"
           ]
         },
@@ -722,8 +715,7 @@
         {
           "name": "Lemon lime",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -987,11 +979,9 @@
           "Fizzy Cherry"
         ],
         "aura-vape": [
-          "Apple peach",
           "Apple pear",
           "Blackberry Lemon",
           "Blueberry",
-          "Blueberry raspberry pomegranate",
           "Blueberry rose mint",
           "Blueberry sour raspberry",
           "Blue Razz Ice",
@@ -1006,7 +996,6 @@
           "Grape cherry",
           "Green grape rose",
           "Jasmine raspberry",
-          "Lemon Lime",
           "Peach ice",
           "Pineapple colada",
           "Pineapple ice",
