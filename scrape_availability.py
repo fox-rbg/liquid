@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+import json
+import re
+from datetime import datetime, timezone
+from pathlib import Path
+
+from playwright.sync_api import sync_playwright
+
 PRODUCTS = {
     "fumot": {
         "name": "Liquid Fumot 30ml 20mg",
@@ -45,3 +53,114 @@ PRODUCTS = {
         ],
     },
 }
+
+SKIP = {"", "smak", "wybierz", "select", "choose", "—", "-", "none"}
+
+
+def normalize(name: str) -> str:
+    n = re.sub(r"\s+", " ", name.strip())
+    return n
+
+
+def normalize_key(name: str) -> str:
+    return normalize(name).lower()
+
+
+def scrape_flavors(page, url: str) -> list:
+    page.goto(url, wait_until="domcontentloaded", timeout=60000)
+    page.wait_for_timeout(3000)
+    flavors = page.evaluate(
+        """() => {
+        const selects = Array.from(document.querySelectorAll('select'));
+        if (!selects.length) return [];
+        const sel = selects[0];
+        const out = [];
+        Array.from(sel.options).forEach(o => {
+            if (o.disabled) return;
+            const t = (o.textContent || '').trim();
+            if (!t || t.length > 55) return;
+            const low = t.toLowerCase();
+            if (['smak', 'wybierz', 'select', 'choose', '—', '-'].includes(low)) return;
+            out.push(t);
+        });
+        return out;
+    }"""
+    )
+    cleaned, seen = [], set()
+    for f in flavors:
+        n = normalize(f)
+        k = normalize_key(n)
+        if k in SKIP or len(k) < 2:
+            continue
+        if k not in seen:
+            seen.add(k)
+            cleaned.append(n)
+    return cleaned
+
+
+def main():
+    print("START scraper")
+    out_path = Path.cwd() / "availability.json"
+    result = {
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "products": {},
+    }
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_context(
+            user_agent=(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            )
+        ).new_page()
+
+        for pid, meta in PRODUCTS.items():
+            print(f"\n=== {meta['name']} ===")
+            by_shop = {}
+            all_keys = set()
+            key_to_name = {}
+
+            for src in meta["sources"]:
+                shop, url = src["shop"], src["url"]
+                try:
+                    flavors = scrape_flavors(page, url)
+                    print(f"  [{shop}] {len(flavors)} dostepnych")
+                    for fl in flavors[:10]:
+                        print(f"      - {fl}")
+                    by_shop[shop] = flavors
+                    for f in flavors:
+                        k = normalize_key(f)
+                        all_keys.add(k)
+                        key_to_name.setdefault(k, f)
+                except Exception as e:
+                    print(f"  [{shop}] BLAD: {e}")
+                    by_shop[shop] = []
+
+            available = [
+                {
+                    "name": key_to_name[k],
+                    "shops": [
+                        s for s, fl in by_shop.items()
+                        if any(normalize_key(x) == k for x in fl)
+                    ],
+                }
+                for k in sorted(all_keys)
+            ]
+
+            result["products"][pid] = {
+                "name": meta["name"],
+                "sources": meta["sources"],
+                "available": available,
+                "unavailable": [],
+                "by_shop": by_shop,
+            }
+
+        browser.close()
+
+    out_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"\nZapisano: {out_path} ({out_path.stat().st_size} bajtow)")
+
+
+if __name__ == "__main__":
+    main()
