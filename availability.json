@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-29T21:08:40.536794+00:00",
+  "updated_at": "2026-10-31T10:40:38.777740+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -266,8 +266,7 @@
         {
           "name": "Blue Razz Lemon",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -525,7 +524,6 @@
           "Blueberry Ice",
           "Blueberry Watermelon",
           "Blue Raspberry",
-          "Blue Razz Lemon",
           "Peach Ice",
           "Peach Mango Watermelon",
           "Perfume Lemon",
@@ -618,8 +616,7 @@
         {
           "name": "Blue razz lemonade",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -789,8 +786,7 @@
         {
           "name": "Pina colada",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -922,8 +918,7 @@
         {
           "name": "Strawberry Watermelon",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -1006,13 +1001,11 @@
           "Fizzy Cherry"
         ],
         "aura-vape": [
-          "Blue razz lemonade",
           "Cool mint",
           "Elf jack",
           "Grape cherry",
           "Green grape rose",
           "Jasmine raspberry",
-          "Pina colada",
           "Pineapple colada",
           "Pineapple ice",
           "Spearmint",
@@ -1027,7 +1020,6 @@
           "Fizzy Cherry",
           "Ocean Mint",
           "Strawberry Razz Lemonade",
-          "Strawberry Watermelon",
           "Very Menthol",
           "Cherry Sour Raspberry"
         ]
