@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-31T10:40:38.777740+00:00",
+  "updated_at": "2026-11-01T11:35:51.243748+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -421,8 +421,7 @@
         {
           "name": "Sour Apple Ice",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -468,7 +467,8 @@
         {
           "name": "Watermelon ice",
           "shops": [
-            "hype-smoke"
+            "hype-smoke",
+            "aura-vape"
           ]
         },
         {
@@ -530,10 +530,10 @@
           "Pineapple Passion Fruit Lime",
           "Pomegranate Lemonade",
           "Purple Candy",
-          "Sour Apple Ice",
           "Strawberry Ice Cream",
           "Strawberry Watermelon",
           "Watermelon Bubble Gum",
+          "Watermelon Ice",
           "Lavafire",
           "Lemon Lime",
           "Love 777",
@@ -658,7 +658,8 @@
         {
           "name": "Cherry cola",
           "shops": [
-            "hype-smoke"
+            "hype-smoke",
+            "aura-vape"
           ]
         },
         {
@@ -879,8 +880,7 @@
         {
           "name": "Strawberry ice",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -1001,6 +1001,7 @@
           "Fizzy Cherry"
         ],
         "aura-vape": [
+          "Cherry Cola",
           "Cool mint",
           "Elf jack",
           "Grape cherry",
@@ -1011,7 +1012,6 @@
           "Spearmint",
           "Strawberry banana",
           "Strawberry cherry lemon",
-          "Strawberry Ice",
           "Strawberry raspberry cherry ice",
           "Strawberry snoow",
           "Watermelon cherry",
