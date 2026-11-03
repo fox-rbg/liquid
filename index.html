@@ -305,13 +305,22 @@
       gap: 0.45rem;
     }
 
-    .flavor-tag {
+       .flavor-tag {
       background: rgba(255,107,157,0.12);
       border: 1px solid rgba(255,107,157,0.25);
       color: var(--text);
       padding: 0.35rem 0.7rem;
       border-radius: 999px;
       font-size: 0.82rem;
+      cursor: pointer; /* DODAJ TO */
+    }
+
+    /* DODAJ PONIŻSZY BLOK */
+    .flavor-tag.selected {
+      background: var(--pink);
+      border-color: var(--pink);
+      color: #111;
+      font-weight: bold;
     }
 
     footer {
@@ -665,10 +674,6 @@ const liquidMap = [
     });
 
     // Render
-    renderCards('disposables', products.disposables);
-    renderCards('liquids', products.liquids);
-    renderCards('devices', products.devices);
-    renderCards('coils', products.coils);
   renderCards('disposables', products.disposables);
   renderCards('liquids', products.liquids);
   renderCards('devices', products.devices);
