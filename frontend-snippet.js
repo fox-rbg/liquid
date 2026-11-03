@@ -1,13 +1,6 @@
 /**
  * Wklej na stronę – ładuje availability.json i pokazuje smaki
  * dostępne (zielone) / niedostępne (szare).
- *
- * W HTML dodaj:
- *   <script src="availability-ui.js"></script>
- *   i w modalu smaków wywołaj: renderFlavors(productId, containerEl)
- *
- * productId musi zgadzać się z kluczami w availability.json:
- *   fumot | puffy_50 | puffy_70 | vozol | elf_liq | yami
  */
 
 const AVAILABILITY_URL = "./availability.json"; // ścieżka do pliku JSON
@@ -54,10 +47,11 @@ async function renderFlavors(productId, container) {
     for (const item of product.available) {
       const name = typeof item === "string" ? item : item.name;
       const shops = item.shops ? item.shops.join(", ") : "";
+      // TUTAJ DODANO class="flavor-tag" oraz data-flavor="${name}"
       html += `
-        <span title="${shops}"
+        <span class="flavor-tag" data-flavor="${name}" title="${shops}"
           style="background:#14532d;color:#bbf7d0;border:1px solid #22c55e;
-                 padding:4px 10px;border-radius:999px;font-size:13px">
+                 padding:4px 10px;border-radius:999px;font-size:13px; cursor:pointer;">
           ${name}
         </span>`;
     }
