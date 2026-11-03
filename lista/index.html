@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lista smaków – BLUSH VAPE</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <style>
+    :root {
+      --bg: #0d0d12; --card: #16161f; --pink: #ff6b9d; --pink-soft: #ff8fb3;
+      --text: #f0f0f5; --muted: #a0a0b0; --border: #2a2a3a;
+      --ok: #3dd68c; --bad: #ff6b6b; --unk: #ffc857;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 1.5rem 1rem 3rem; }
+    .wrap { max-width: 780px; margin: 0 auto; }
+    h1 { font-size: 1.35rem; margin-bottom: 0.3rem; background: linear-gradient(135deg, var(--pink), #ffb6c1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .sub { color: var(--muted); font-size: 0.88rem; margin-bottom: 1.2rem; line-height: 1.4; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.15rem; margin-bottom: 1rem; }
+    label { display: block; font-size: 0.82rem; color: var(--pink-soft); margin-bottom: 0.4rem; }
+    input, textarea, select {
+      width: 100%; background: #0f0f16; border: 1px solid var(--border); border-radius: 10px;
+      color: var(--text); padding: 0.7rem 0.85rem; font-size: 0.95rem; font-family: inherit;
+    }
+    textarea { min-height: 220px; resize: vertical; line-height: 1.45; }
+    button {
+      margin-top: 0.75rem; width: 100%; border: none; border-radius: 10px; padding: 0.85rem;
+      font-weight: 600; font-size: 0.95rem; cursor: pointer; background: var(--pink); color: #111;
+    }
+    button.secondary { background: transparent; border: 1px solid var(--border); color: var(--text); margin-top: 0.45rem; }
+    .err { color: var(--bad); font-size: 0.85rem; margin-top: 0.5rem; }
+    .hint { color: var(--muted); font-size: 0.78rem; margin-top: 0.45rem; line-height: 1.4; }
+    #gate { max-width: 400px; margin: 15vh auto 0; }
+    #app { display: none; }
+    .stats { display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 0.8rem 0; }
+    .stat { flex: 1; min-width: 100px; background: #0f0f16; border: 1px solid var(--border); border-radius: 10px; padding: 0.65rem; text-align: center; }
+    .stat b { display: block; font-size: 1.35rem; }
+    .stat.ok b { color: var(--ok); } .stat.bad b { color: var(--bad); } .stat.unk b { color: var(--unk); }
+    .row { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.6rem; padding: 0.55rem 0.65rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    .row:last-child { border-bottom: none; }
+    .meta { font-size: 0.72rem; color: var(--muted); margin-top: 0.15rem; }
+    .tag { font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 999px; white-space: nowrap; flex-shrink: 0; }
+    .tag.ok { background: rgba(61,214,140,.15); color: var(--ok); }
+    .tag.bad { background: rgba(255,107,107,.15); color: var(--bad); }
+    .tag.unk { background: rgba(255,200,87,.12); color: var(--unk); }
+    .tag.skip { background: rgba(160,160,176,.12); color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div id="gate" class="wrap">
+    <div class="card">
+      <h1>Blush Vape – lista</h1>
+      <p class="sub">Dostęp tylko dla upoważnionych</p>
+      <label for="pw">Hasło</label>
+      <input type="password" id="pw" placeholder="Hasło" autocomplete="current-password" />
+      <button type="button" id="btnLogin">Wejdź</button>
+      <p class="err" id="loginErr" hidden>Złe hasło</p>
+    </div>
+  </div>
+
+  <div id="app" class="wrap">
+    <h1>Sprawdź listę zamówień</h1>
+    <p class="sub">Wklej listę jak z czatu (z numerami, imionami, „vozol love 777”). System sam wyciągnie smak i markę.</p>
+
+    <div class="card">
+      <label for="list">Lista</label>
+      <textarea id="list" placeholder="34. vozol love 777&#10;35. Yami Pink lemonade&#10;Maryśka&#10;41. cherry lemon peach&#10;..."></textarea>
+      <p class="hint">Możesz wkleić bałagan: numery, imiona, ✅❎, „prime”, „elf liq”, „darmowy”. Linie bez smaku (same imię) będą pominięte.</p>
+      <button type="button" id="btnCheck">Sprawdź dostępność</button>
+      <button type="button" class="secondary" id="btnLogout">Wyloguj</button>
+    </div>
+
+    <div id="results" hidden>
+      <div class="stats">
+        <div class="stat ok"><b id="nOk">0</b>dostępne</div>
+        <div class="stat bad"><b id="nBad">0</b>niedostępne</div>
+        <div class="stat unk"><b id="nUnk">0</b>nieznane</div>
+      </div>
+      <div class="card" id="resultList"></div>
+    </div>
+  </div>
+
+<script>
+const PASS = "blush2026";
+const AVAIL_URL = "../availability.json";
+const SESSION_KEY = "blush_lista_ok";
+
+const BRAND_RE = /\b(vozol|prime|yami|elf\s*liq|elfliq|elf|fumot|puffy|oxva|liquid)\b/gi;
+const SKIP_LINE = /^(mary[sś]ka|ewa|ja|milena|gruby|ku[zź]niarz|krawczykowa|elfliq|darmowy.*|cokolwiek|tak wyglada.*)?$/i;
+
+function norm(s) {
+  return (s || "")
+    .toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/bluberry|blubery/g, "blueberry")
+    .replace(/pomagranate/g, "pomegranate")
+    .replace(/fruite/g, "fruit")
+    .replace(/tabaca|tabacco/g, "tobacco")
+    .replace(/lim[eę]/g, "lime")
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function detectBrand(text) {
+  const t = text.toLowerCase();
+  if (/vozol|prime/.test(t)) return "vozol";
+  if (/yami/.test(t)) return "yami";
+  if (/elf\s*liq|elfliq|\belf\b/.test(t)) return "elf_liq";
+  if (/fumot/.test(t)) return "fumot";
+  if (/puffy/.test(t)) return "puffy";
+  if (/oxva/.test(t)) return "oxva";
+  return null;
+}
+
+function parseLine(raw) {
+  let line = raw.trim();
+  if (!line) return null;
+
+  // skip pure names / headers
+  const onlyName = line.replace(/[\d.\)\s✅❎\-]/g, "");
+  if (/^(mary[sś]ka|ewa|ja|milena|gruby|ku[zź]niarz|krawczykowa|elfliq)$/i.test(onlyName)) {
+    return { skip: true, raw: line, reason: "imię / nagłówek" };
+  }
+  if (/^tak wygl/i.test(line)) return { skip: true, raw: line, reason: "meta" };
+
+  // strip leading number
+  line = line.replace(/^\s*\d+[\.\)\-\:]?\s*/i, "");
+  // strip emoji checkmarks
+  line = line.replace(/[✅❎✔️❌☑☐]/g, " ").trim();
+  // strip "darmowy", "ten darmowy"
+  const isFree = /darmow/i.test(line);
+  line = line.replace(/\b(ten\s+)?darmow\w*\b/gi, " ").trim();
+  // strip cartridge notes
+  line = line.replace(/,?\s*catridge.*$/i, "").replace(/,?\s*cartridge.*$/i, "").replace(/,?\s*grza[lł]k.*$/i, "").trim();
+
+  if (!line || /^cokolwiek$/i.test(line)) {
+    return { skip: true, raw: raw, reason: "brak smaku" };
+  }
+
+  const brand = detectBrand(line);
+  // remove brand words from flavor text
+  let flavor = line
+    .replace(BRAND_RE, " ")
+    .replace(/\b30ml\b|\b50mg\b|\b20mg\b|\b70mg\b/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  if (!flavor || flavor.length < 2) {
+    return { skip: true, raw: raw, reason: "brak smaku po czyszczeniu" };
+  }
+
+  return { skip: false, raw, flavor, brand, isFree, num: (raw.match(/^\s*(\d+)/) || [])[1] || "" };
+}
+
+function unlock() {
+  document.getElementById("gate").style.display = "none";
+  document.getElementById("app").style.display = "block";
+}
+function lock() {
+  sessionStorage.removeItem(SESSION_KEY);
+  document.getElementById("gate").style.display = "block";
+  document.getElementById("app").style.display = "none";
+}
+document.getElementById("btnLogin").onclick = () => {
+  if (document.getElementById("pw").value === PASS) {
+    sessionStorage.setItem(SESSION_KEY, "1");
+    document.getElementById("loginErr").hidden = true;
+    unlock();
+  } else document.getElementById("loginErr").hidden = false;
+};
+document.getElementById("pw").addEventListener("keydown", e => { if (e.key === "Enter") document.getElementById("btnLogin").click(); });
+document.getElementById("btnLogout").onclick = lock;
+if (sessionStorage.getItem(SESSION_KEY) === "1") unlock();
+
+let availData = null;
+async function loadAvailability() {
+  if (availData) return availData;
+  const res = await fetch(AVAIL_URL + "?t=" + Date.now());
+  if (!res.ok) throw new Error("Nie ma availability.json (" + res.status + ")");
+  availData = await res.json();
+  return availData;
+}
+
+function brandMatch(pid, pname, brand) {
+  if (!brand) return true;
+  const s = (pid + " " + pname).toLowerCase();
+  if (brand === "elf_liq") return s.includes("elf");
+  if (brand === "puffy") return s.includes("puffy");
+  return s.includes(brand);
+}
+
+function buildIndex(data) {
+  const map = [];
+  for (const [id, p] of Object.entries(data.products || {})) {
+    for (const a of p.available || []) {
+      const name = typeof a === "string" ? a : a.name;
+      map.push({ id, pname: p.name || id, flavor: name, k: norm(name), ok: true });
+    }
+    for (const u of p.unavailable || []) {
+      const name = typeof u === "string" ? u : u.name;
+      map.push({ id, pname: p.name || id, flavor: name, k: norm(name), ok: false });
+    }
+  }
+  return map;
+}
+
+function findFlavor(index, flavor, brand) {
+  const q = norm(flavor);
+  if (!q) return null;
+  let hits = index.filter(x => brandMatch(x.id, x.pname, brand) && (x.k === q || x.k.includes(q) || q.includes(x.k)));
+  const exact = hits.filter(x => x.k === q);
+  if (exact.length) hits = exact;
+  // prefer available
+  const ok = hits.find(h => h.ok);
+  return ok || hits[0] || null;
+}
+
+function esc(s) {
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+document.getElementById("btnCheck").onclick = async () => {
+  const lines = document.getElementById("list").value.split(/\r?\n/);
+  const box = document.getElementById("resultList");
+  const results = document.getElementById("results");
+  results.hidden = false;
+  box.innerHTML = "<p class='hint'>Sprawdzam…</p>";
+
+  try {
+    const data = await loadAvailability();
+    const index = buildIndex(data);
+    let nOk = 0, nBad = 0, nUnk = 0;
+    const rows = [];
+
+    for (const raw of lines) {
+      if (!raw.trim()) continue;
+      const parsed = parseLine(raw);
+      if (!parsed) continue;
+      if (parsed.skip) {
+        rows.push({ kind: "skip", raw: parsed.raw, reason: parsed.reason });
+        continue;
+      }
+      const hit = findFlavor(index, parsed.flavor, parsed.brand);
+      if (!hit) {
+        nUnk++;
+        rows.push({
+          kind: "unk",
+          raw: parsed.raw,
+          flavor: parsed.flavor,
+          brand: parsed.brand,
+          free: parsed.isFree,
+          num: parsed.num,
+        });
+      } else if (hit.ok) {
+        nOk++;
+        rows.push({
+          kind: "ok",
+          raw: parsed.raw,
+          flavor: parsed.flavor,
+          match: hit.flavor,
+          product: hit.pname,
+          free: parsed.isFree,
+          num: parsed.num,
+        });
+      } else {
+        nBad++;
+        rows.push({
+          kind: "bad",
+          raw: parsed.raw,
+          flavor: parsed.flavor,
+          match: hit.flavor,
+          product: hit.pname,
+          free: parsed.isFree,
+          num: parsed.num,
+        });
+      }
+    }
+
+    document.getElementById("nOk").textContent = nOk;
+    document.getElementById("nBad").textContent = nBad;
+    document.getElementById("nUnk").textContent = nUnk;
+
+    box.innerHTML = rows.map(r => {
+      if (r.kind === "skip") {
+        return `<div class="row"><div><div>${esc(r.raw)}</div><div class="meta">${esc(r.reason)}</div></div><span class="tag skip">pominięte</span></div>`;
+      }
+      const label = r.kind === "ok" ? "dostępny" : r.kind === "bad" ? "niedostępny" : "nieznany";
+      const free = r.free ? " · GRATIS" : "";
+      const meta = r.kind === "unk"
+        ? `szukano: ${esc(r.flavor)}${r.brand ? " · " + esc(r.brand) : ""}`
+        : `${esc(r.match)} · ${esc(r.product)}`;
+      return `<div class="row"><div><div>${r.num ? r.num + ". " : ""}${esc(r.flavor)}${free}</div><div class="meta">${meta}</div></div><span class="tag ${r.kind}">${label}</span></div>`;
+    }).join("");
+  } catch (e) {
+    box.innerHTML = `<p class="err">${esc(e.message)}</p>`;
+  }
+};
+</script>
+</body>
+</html>
