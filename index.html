@@ -669,7 +669,43 @@ const liquidMap = [
     renderCards('liquids', products.liquids);
     renderCards('devices', products.devices);
     renderCards('coils', products.coils);
-  </script>
+  renderCards('disposables', products.disposables);
+  renderCards('liquids', products.liquids);
+  renderCards('devices', products.devices);
+  renderCards('coils', products.coils);
+
+  // --- WKLEJ TO TUTAJ (przed </script>) ---
+  document.addEventListener('click', function (e) {
+    const tag = e.target.closest('#modal-flavors .flavor-tag');
+    if (!tag) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    document.querySelectorAll('#modal-flavors .flavor-tag.selected')
+      .forEach(el => el.classList.remove('selected'));
+
+    tag.classList.add('selected');
+
+    const flavor = tag.dataset.flavor || tag.textContent.trim();
+
+    window.selectedFlavor = flavor;
+
+    let input = document.querySelector(
+      '#selected-flavor, input[name="flavor"], input[name="smak"]'
+    );
+    if (!input) {
+      input = document.createElement('input');
+      input.type = 'hidden';
+      input.id = 'selected-flavor';
+      input.name = 'flavor';
+      document.body.appendChild(input);
+    }
+    input.value = flavor;
+  });
+  // --- KONIEC WKLEJANIA ---
+
+</script>
 <script src="frontend-snippet.js"></script>
 <script src="order-system.js"></script>
 </body>
