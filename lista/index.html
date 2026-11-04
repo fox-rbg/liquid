@@ -246,13 +246,32 @@ document.getElementById("btnCheck").onclick = async () => {
   } catch (e) { box.innerHTML = `<p class="err">${esc(e.message)}</p>`; }
 };
 
-function renderOrders() {
+async function renderOrders() {
   const el = document.getElementById("ordersList");
-  let all = [];
-  try { all = JSON.parse(localStorage.getItem(ORDER_STORAGE_KEY) || "[]"); } catch (e) {}
-  if (!all.length) {
-    el.innerHTML = `<div class="card"><p class="hint">Brak lokalnych zamówień na tym telefonie/przeglądarce.<br>Zamówienia klientów z innych urządzeń: <b>Netlify → Forms → zamowienie</b>.</p></div>`;
-    return;
+  el.innerHTML = `<div class="card"><p class="hint">Ładowanie zamówień…</p></div>`;
+  try {
+    const res = await fetch("https://zlrmfyulhuyvsjotldju.supabase.co/rest/v1/zamowienia?order=czas.desc", {
+      headers: {
+        "apikey": "sb_publishable_2neAkxZzfd0VMvcr0omR_w_GbVN4aYq",
+        "Authorization": "Bearer sb_publishable_2neAkxZzfd0VMvcr0omR_w_GbVN4aYq"
+      }
+    });
+    const orders = await res.json();
+    if (!orders.length) {
+      el.innerHTML = `<div class="card"><p class="hint">Brak zamówień.</p></div>`;
+      return;
+    }
+    el.innerHTML = orders.map(o => `
+      <div class="order-card">
+        <h4>${esc(o.klient || "?")} · ${esc(o.platnosc || "")}</h4>
+        <div class="meta">${esc(o.smaki || "")}</div>
+        <div class="meta">${esc(o.cena || "")} · ${esc(o.czas ? new Date(o.czas).toLocaleString("pl-PL") : "")}</div>
+        <div style="margin-top:.4rem"><span class="tag ${o.platnosc==="przelew"?"przelew":"gotowka"}">${o.platnosc||"gotówka"}</span></div>
+      </div>
+    `).join("");
+  } catch(e) {
+    el.innerHTML = `<div class="card"><p class="err">Błąd ładowania zamówień.</p></div>`;
+  }
   }
   el.innerHTML = all.map(o => {
     const when = o.at ? new Date(o.at).toLocaleString("pl-PL") : "";
