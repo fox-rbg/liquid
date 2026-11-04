@@ -54,6 +54,8 @@
     .tag.przelew { background: rgba(255,107,157,.15); color: var(--pink-soft); }
     .order-card { border: 1px solid var(--border); border-radius: 12px; padding: 0.9rem; margin-bottom: 0.7rem; background: #0f0f16; }
     .order-card h4 { font-size: 0.95rem; margin-bottom: 0.35rem; }
+    .summary-box { background: #0f0f16; border: 1px solid var(--border); border-radius: 12px; padding: 1rem; margin-top: 1rem; font-size: 0.85rem; line-height: 1.5; }
+    .summary-box h3 { margin-bottom: 0.6rem; color: var(--pink-soft); }
   </style>
 </head>
 <body>
@@ -96,10 +98,12 @@
 
     <div id="panel-orders" class="panel">
       <div class="card">
-        <p class="hint">Zamówienia z Supabase (odśwież, żeby zobaczyć nowe).</p>
+        <p class="hint">Zamówienia z Supabase.</p>
         <button type="button" id="btnRefreshOrders" class="secondary">Odśwież</button>
+        <button type="button" id="btnClearOrders" class="secondary" style="border-color:#ff6b6b;color:#ff6b6b">Wyczyść wszystkie zamówienia</button>
       </div>
       <div id="ordersList"></div>
+      <div id="summaryBox" class="summary-box" hidden></div>
     </div>
 
     <button type="button" class="secondary" id="btnLogout">Wyloguj</button>
@@ -244,7 +248,9 @@ document.getElementById("btnCheck").onclick = async () => {
 
 async function renderOrders() {
   const el = document.getElementById("ordersList");
+  const summaryEl = document.getElementById("summaryBox");
   el.innerHTML = `<div class="card"><p class="hint">Ładowanie zamówień…</p></div>`;
+  summaryEl.hidden = true;
   try {
     const res = await fetch(SUPABASE_URL + "/rest/v1/zamowienia?order=czas.desc", {
       headers: {
@@ -265,11 +271,48 @@ async function renderOrders() {
         <div style="margin-top:.4rem"><span class="tag ${o.platnosc==="przelew"?"przelew":"gotowka"}">${o.platnosc||"gotówka"}</span></div>
       </div>
     `).join("");
+
+    // Podsumowanie
+    const byPerson = {};
+    orders.forEach(o => {
+      const person = o.klient || "Nieznany";
+      if (!byPerson[person]) byPerson[person] = [];
+      const lines = (o.smaki || "").split(";").map(s => s.trim()).filter(Boolean);
+      byPerson[person].push(...lines);
+    });
+
+    let summaryHtml = "<h3>Podsumowanie zamówień</h3>";
+    for (const [person, lines] of Object.entries(byPerson)) {
+      summaryHtml += `<div style="margin-bottom:0.8rem"><b>${esc(person)}</b><br>`;
+      lines.forEach(l => summaryHtml += `• ${esc(l)}<br>`);
+      summaryHtml += "</div>";
+    }
+    summaryEl.innerHTML = summaryHtml;
+    summaryEl.hidden = false;
   } catch(e) {
     el.innerHTML = `<div class="card"><p class="err">Błąd ładowania zamówień.</p></div>`;
   }
 }
+
 document.getElementById("btnRefreshOrders").onclick = renderOrders;
+
+document.getElementById("btnClearOrders").onclick = async () => {
+  if (!confirm("Na pewno usunąć WSZYSTKIE zamówienia z Supabase?")) return;
+  try {
+    await fetch(SUPABASE_URL + "/rest/v1/zamowienia", {
+      method: "DELETE",
+      headers: {
+        "apikey": SUPABASE_KEY,
+        "Authorization": "Bearer " + SUPABASE_KEY,
+        "Prefer": "return=minimal"
+      }
+    });
+    alert("Zamówienia wyczyszczone.");
+    renderOrders();
+  } catch(e) {
+    alert("Błąd czyszczenia: " + e.message);
+  }
+};
 </script>
 </body>
 </html>
