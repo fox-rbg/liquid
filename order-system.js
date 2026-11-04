@@ -1,15 +1,12 @@
 /**
- * BLUSH VAPE – zamówienia
- * - klik w smak = +1 szt (można kilka razy ten sam)
- * - − przy smaku = usuń 1 szt
- * - na dole: suma sztuk + cena + „Wybierz płatność”
- * - imię/IG → gotówka / przelew
- * - przelew → Instagram
- * - gotówka → „Zamówienie zakończone”
- * <script src="order-system.js"></script> przed </body>
+ * BLUSH VAPE – zamówienia z GLOBALNYM KOSZYKIEM
+ * - można łączyć smaki z różnych firm
+ * - przelew → komunikat + przycisk Instagram
+ * - zamówienia zapisują się TYLKO lokalnie (localStorage) – pojawiają się w panelu
  */
 const ORDER_IG_URL = "https://www.instagram.com/blushvape_/";
 const ORDER_STORAGE_KEY = "blush_orders_v1";
+const CART_STORAGE_KEY = "blush_cart_v1";
 
 (function () {
   if (document.getElementById("order-pay-ui")) return;
@@ -40,7 +37,7 @@ const ORDER_STORAGE_KEY = "blush_orders_v1";
       margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #2a2a3a;
     }
     .order-bar .order-lines {
-      font-size: .82rem; color: #c8c8d0; margin-bottom: .55rem; max-height: 120px; overflow-y: auto;
+      font-size: .82rem; color: #c8c8d0; margin-bottom: .55rem; max-height: 140px; overflow-y: auto;
     }
     .order-bar .order-lines div { margin: .2rem 0; }
     .order-bar .order-total {
@@ -60,7 +57,7 @@ const ORDER_STORAGE_KEY = "blush_orders_v1";
     .order-pay-ui.open { display: flex; }
     .order-pay-box {
       background: #16161f; border: 1px solid #2a2a3a; border-radius: 16px;
-      padding: 1.35rem; max-width: 400px; width: 100%; color: #f0f0f5;
+      padding: 1.35rem; max-width: 420px; width: 100%; color: #f0f0f5;
     }
     .order-pay-box h3 { margin: 0 0 .6rem; font-size: 1.15rem; }
     .order-pay-box label { display: block; font-size: .8rem; color: #ff8fb3; margin: .75rem 0 .3rem; }
@@ -78,21 +75,27 @@ const ORDER_STORAGE_KEY = "blush_orders_v1";
     .order-success { text-align: center; padding: .8rem 0; }
     .order-success p { color: #3dd68c; margin: .45rem 0; line-height: 1.45; }
     .order-err { color: #ff6b6b; font-size: .85rem; margin-top: .5rem; }
+    .ig-btn { background: #ff6b9d !important; color: #111 !important; text-decoration: none; display: inline-block; margin-top: .6rem; padding: .7rem 1rem; border-radius: 10px; font-weight: 600; }
   `;
   document.head.appendChild(style);
 
-  /** @type {Record<string, number>} flavor name -> qty */
-  let cart = {};
-  let unitPrice = 0;
-  let productName = "";
-  let productPriceLabel = "";
+  let cart = [];
   let selectedPay = "gotowka";
+
+  try {
+    const saved = localStorage.getItem(CART_STORAGE_KEY);
+    if (saved) cart = JSON.parse(saved);
+  } catch (e) {}
+
+  function saveCart() {
+    try { localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart)); } catch (e) {}
+  }
 
   const payUI = document.createElement("div");
   payUI.id = "order-pay-ui";
   payUI.className = "order-pay-ui";
   payUI.innerHTML = `
-    <div class="order-pay-box" id="order-pay-box">
+    <div class="order-pay-box">
       <h3>Płatność</h3>
       <div id="order-summary" style="font-size:.85rem;color:#a0a0b0;line-height:1.4"></div>
       <div id="order-summary-price" style="font-weight:700;color:#ff6b9d;margin-top:.4rem"></div>
@@ -108,17 +111,6 @@ const ORDER_STORAGE_KEY = "blush_orders_v1";
       <button type="button" id="order-cancel" style="background:transparent;border:1px solid #2a2a3a;color:#f0f0f5">Anuluj</button>
       <div id="order-done" class="order-success" hidden></div>
     </div>
-    <form name="zamowienie" method="POST" data-netlify="true" netlify netlify-honeypot="bot-field" hidden>
-      <input type="hidden" name="form-name" value="zamowienie" />
-      <input name="bot-field" />
-      <input name="produkt" />
-      <input name="smaki" />
-      <input name="platnosc" />
-      <input name="klient" />
-      <input name="cena" />
-      <input name="sztuk" />
-      <input name="czas" />
-    </form>
   `;
   document.body.appendChild(payUI);
 
@@ -135,36 +127,21 @@ const ORDER_STORAGE_KEY = "blush_orders_v1";
     payUI.classList.remove("open");
     document.getElementById("order-done").hidden = true;
     document.getElementById("order-submit").hidden = false;
-    document.getElementById("order-name").parentElement.querySelector("label").style.display = "";
     document.getElementById("order-name").style.display = "";
     payUI.querySelector(".pay-options").style.display = "";
   }
 
-  function parsePrice(text) {
-    if (!text) return 0;
-    const m = String(text).replace(",", ".").match(/(\d+(?:\.\d+)?)/);
-    return m ? parseFloat(m[1]) : 0;
-  }
-
-  function totalQty() {
-    return Object.values(cart).reduce((a, b) => a + b, 0);
-  }
-
-  function totalPrice() {
-    return unitPrice * totalQty();
-  }
-
+  function totalQty() { return cart.reduce((s, i) => s + i.qty, 0); }
+  function totalPrice() { return cart.reduce((s, i) => s + i.qty * i.unitPrice, 0); }
   function cartLines() {
-    return Object.entries(cart)
-      .filter(([, q]) => q > 0)
-      .map(([name, q]) => (q > 1 ? `${name} ×${q}` : name));
+    return cart.filter(i => i.qty > 0).map(i => 
+      `${i.product}: ${i.flavor}${i.qty > 1 ? " ×" + i.qty : ""}`
+    );
   }
 
   function ensureOrderBar() {
     let bar = document.getElementById("order-bar");
     if (bar) return bar;
-    const modal = document.querySelector(".modal") || document.querySelector("#modal .modal") || document.getElementById("modal");
-    const host = modal && modal.querySelector ? (modal.classList.contains("modal") ? modal : modal.querySelector(".modal") || modal) : null;
     const target = document.querySelector(".modal.active") || document.querySelector(".modal") || document.getElementById("modal");
     if (!target) return null;
     bar = document.createElement("div");
@@ -175,17 +152,13 @@ const ORDER_STORAGE_KEY = "blush_orders_v1";
       <div class="order-total" id="order-total">Suma: 0 zł</div>
       <button type="button" id="order-go-pay" disabled>Wybierz płatność</button>
     `;
-    // append inside visible modal content
-    const inner = target.querySelector(".modal") || target;
-    inner.appendChild(bar);
+    (target.querySelector(".modal") || target).appendChild(bar);
 
     document.getElementById("order-go-pay").onclick = () => {
       if (totalQty() < 1) return;
       const lines = cartLines();
-      document.getElementById("order-summary").innerHTML =
-        `<b>${escapeHtml(productName)}</b><br>${lines.map(escapeHtml).join("<br>")}`;
-      document.getElementById("order-summary-price").textContent =
-        `Do zapłaty: ${totalPrice()} zł (${totalQty()} szt. × ${unitPrice} zł)`;
+      document.getElementById("order-summary").innerHTML = lines.map(l => `• ${escapeHtml(l)}`).join("<br>");
+      document.getElementById("order-summary-price").textContent = `Do zapłaty: ${totalPrice()} zł (${totalQty()} szt.)`;
       document.getElementById("order-name").value = "";
       document.getElementById("order-err").hidden = true;
       document.getElementById("order-submit").hidden = false;
@@ -193,9 +166,7 @@ const ORDER_STORAGE_KEY = "blush_orders_v1";
       document.getElementById("order-name").style.display = "";
       payUI.querySelector(".pay-options").style.display = "flex";
       selectedPay = "gotowka";
-      payUI.querySelectorAll("[data-pay]").forEach((b) => {
-        b.classList.toggle("active", b.getAttribute("data-pay") === "gotowka");
-      });
+      payUI.querySelectorAll("[data-pay]").forEach(b => b.classList.toggle("active", b.getAttribute("data-pay") === "gotowka"));
       payUI.classList.add("open");
     };
     return bar;
@@ -209,28 +180,33 @@ const ORDER_STORAGE_KEY = "blush_orders_v1";
     const lines = cartLines();
     if (linesEl) {
       linesEl.innerHTML = lines.length
-        ? lines.map((l) => `<div>• ${escapeHtml(l)}</div>`).join("")
-        : `<div style="color:#a0a0b0">Klikaj smaki — można kilka razy ten sam</div>`;
+        ? lines.map(l => `<div>• ${escapeHtml(l)}</div>`).join("")
+        : `<div style="color:#a0a0b0">Klikaj smaki z różnych produktów — wszystko w jednym koszyku</div>`;
     }
-    if (totalEl) {
-      totalEl.textContent = lines.length
-        ? `Suma: ${totalPrice()} zł · ${totalQty()} szt.`
-        : `Suma: 0 zł`;
-    }
+    if (totalEl) totalEl.textContent = lines.length ? `Suma: ${totalPrice()} zł · ${totalQty()} szt.` : `Suma: 0 zł`;
     if (btn) btn.disabled = totalQty() < 1;
   }
 
-  function setQty(flavor, qty) {
+  function setQty(product, flavor, unitPrice, qty) {
     qty = Math.max(0, qty | 0);
-    if (qty === 0) delete cart[flavor];
-    else cart[flavor] = qty;
-    // update badges on tags
-    document.querySelectorAll("#modal-flavors .flavor-tag.selectable").forEach((tag) => {
-      const name = tag.getAttribute("data-flavor") || tag.childNodes[0]?.textContent?.trim() || tag.textContent.trim();
-      // get clean name from data-flavor
+    const idx = cart.findIndex(i => i.product === product && i.flavor === flavor);
+    if (qty === 0) { if (idx >= 0) cart.splice(idx, 1); }
+    else {
+      if (idx >= 0) cart[idx].qty = qty;
+      else cart.push({ product, flavor, qty, unitPrice });
+    }
+    saveCart();
+    refreshBadges();
+    updateOrderBar();
+  }
+
+  function refreshBadges() {
+    document.querySelectorAll("#modal-flavors .flavor-tag.selectable").forEach(tag => {
       const fname = tag.getAttribute("data-flavor");
       if (!fname) return;
-      const q = cart[fname] || 0;
+      const productName = document.getElementById("modal-title")?.textContent?.trim() || "";
+      const item = cart.find(i => i.product === productName && i.flavor === fname);
+      const q = item ? item.qty : 0;
       tag.classList.toggle("has-qty", q > 0);
       let badge = tag.querySelector(".flavor-qty-badge");
       if (q > 0) {
@@ -242,12 +218,14 @@ const ORDER_STORAGE_KEY = "blush_orders_v1";
         badge.textContent = String(q);
       } else if (badge) badge.remove();
     });
-    updateOrderBar();
   }
 
   function enhanceFlavorTags(box) {
     if (!box) return;
-    box.querySelectorAll(".flavor-tag").forEach((tag) => {
+    const productName = document.getElementById("modal-title")?.textContent?.trim() || "Produkt";
+    const unitPrice = parsePrice(document.getElementById("modal-price")?.textContent || "");
+
+    box.querySelectorAll(".flavor-tag").forEach(tag => {
       if (tag.dataset.orderBound === "1") return;
       tag.dataset.orderBound = "1";
       tag.classList.add("selectable");
@@ -258,52 +236,41 @@ const ORDER_STORAGE_KEY = "blush_orders_v1";
       minus.type = "button";
       minus.className = "flavor-qty-minus";
       minus.textContent = "−";
-      minus.title = "Usuń 1";
-      minus.addEventListener("click", (e) => {
+      minus.addEventListener("click", e => {
         e.stopPropagation();
-        setQty(fname, (cart[fname] || 0) - 1);
+        const current = cart.find(i => i.product === productName && i.flavor === fname);
+        setQty(productName, fname, unitPrice, (current?.qty || 0) - 1);
       });
       tag.appendChild(minus);
 
-      tag.addEventListener("click", (e) => {
+      tag.addEventListener("click", e => {
         if (e.target === minus) return;
         e.stopPropagation();
-        setQty(fname, (cart[fname] || 0) + 1);
+        const current = cart.find(i => i.product === productName && i.flavor === fname);
+        setQty(productName, fname, unitPrice, (current?.qty || 0) + 1);
       });
     });
+    refreshBadges();
   }
 
-  function resetCartForProduct() {
-    cart = {};
-    const title = document.getElementById("modal-title");
-    const priceEl = document.getElementById("modal-price");
-    productName = title ? title.textContent.trim() : "Produkt";
-    productPriceLabel = priceEl ? priceEl.textContent.trim() : "";
-    unitPrice = parsePrice(productPriceLabel);
-    updateOrderBar();
+  function parsePrice(text) {
+    if (!text) return 0;
+    const m = String(text).replace(",", ".").match(/(\d+(?:\.\d+)?)/);
+    return m ? parseFloat(m[1]) : 0;
   }
 
-  document.getElementById("order-submit").onclick = async () => {
+  document.getElementById("order-submit").onclick = () => {
     const err = document.getElementById("order-err");
     const name = (document.getElementById("order-name").value || "").trim();
-    if (!name) {
-      err.textContent = "Wpisz imię albo Instagram";
-      err.hidden = false;
-      return;
-    }
-    if (totalQty() < 1) {
-      err.textContent = "Wybierz smaki";
-      err.hidden = false;
-      return;
-    }
+    if (!name) { err.textContent = "Wpisz imię albo Instagram"; err.hidden = false; return; }
+    if (totalQty() < 1) { err.textContent = "Wybierz smaki"; err.hidden = false; return; }
     err.hidden = true;
 
     const lines = cartLines();
     const order = {
       id: Date.now().toString(36),
-      product: productName,
+      product: "Koszyk",
       price: totalPrice() + " zł",
-      unitPrice,
       qty: totalQty(),
       flavors: lines,
       pay: selectedPay,
@@ -317,22 +284,10 @@ const ORDER_STORAGE_KEY = "blush_orders_v1";
       localStorage.setItem(ORDER_STORAGE_KEY, JSON.stringify(all.slice(0, 300)));
     } catch (e) {}
 
-    try {
-      const form = document.querySelector('form[name="zamowienie"]');
-      form.produkt.value = order.product;
-      form.smaki.value = lines.join("; ");
-      form.platnosc.value = order.pay;
-      form.klient.value = order.client;
-      form.cena.value = order.price;
-      form.sztuk.value = String(order.qty);
-      form.czas.value = order.at;
-      const fd = new FormData(form);
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(fd).toString(),
-      });
-    } catch (e) {}
+    cart = [];
+    saveCart();
+    refreshBadges();
+    updateOrderBar();
 
     document.getElementById("order-submit").hidden = true;
     document.getElementById("order-name").style.display = "none";
@@ -341,12 +296,15 @@ const ORDER_STORAGE_KEY = "blush_orders_v1";
     done.hidden = false;
 
     if (selectedPay === "przelew") {
-      done.innerHTML = `<p>Zamówienie przyjęte.</p><p>Przekierowanie na Instagram (przelew)…</p>`;
-      setTimeout(() => { window.location.href = ORDER_IG_URL; }, 1000);
+      done.innerHTML = `
+        <p>✅ Zamówienie przyjęte</p>
+        <p style="color:#ccc;font-size:.9rem">Odezwij się na Instagramie<br><b>@blushvape_</b><br>i podaj dane do przelewu.</p>
+        <a href="${ORDER_IG_URL}" target="_blank" class="ig-btn">Otwórz Instagram</a>
+      `;
     } else {
       done.innerHTML = `
         <p>✅ Zamówienie zakończone</p>
-        <p style="color:#ccc;font-size:.9rem">${escapeHtml(order.product)}<br>${escapeHtml(lines.join(", "))}<br><b>${escapeHtml(order.price)}</b> · gotówka</p>
+        <p style="color:#ccc;font-size:.9rem">${escapeHtml(lines.join("<br>"))}<br><b>${escapeHtml(order.price)}</b> · gotówka</p>
       `;
     }
   };
@@ -370,6 +328,7 @@ const ORDER_STORAGE_KEY = "blush_orders_v1";
     const modal = document.getElementById("modal");
     if (modal) obs.observe(modal, { attributes: true, attributeFilter: ["class"], subtree: true });
     ensureOrderBar();
+    updateOrderBar();
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
@@ -379,7 +338,6 @@ const ORDER_STORAGE_KEY = "blush_orders_v1";
   if (typeof prev === "function") {
     window.openModal = function () {
       const r = prev.apply(this, arguments);
-      resetCartForProduct();
       setTimeout(() => {
         enhanceFlavorTags(document.getElementById("modal-flavors"));
         ensureOrderBar();
@@ -388,7 +346,7 @@ const ORDER_STORAGE_KEY = "blush_orders_v1";
       setTimeout(() => {
         enhanceFlavorTags(document.getElementById("modal-flavors"));
         updateOrderBar();
-      }, 500);
+      }, 400);
       return r;
     };
   }
