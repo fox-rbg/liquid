@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-01T11:35:51.243748+00:00",
+  "updated_at": "2026-11-04T18:26:34.221211+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -30,10 +30,6 @@
         {
           "shop": "hype-smoke",
           "url": "https://hype-smoke.store/tproduct/628418754584-liquid-puffy"
-        },
-        {
-          "shop": "aura-vape",
-          "url": "https://aura-vape.store/tproduct/478546493124-puffy-30ml-50mg"
         }
       ],
       "available": [
@@ -118,8 +114,7 @@
         {
           "name": "Pineapple coconut",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -131,8 +126,7 @@
         {
           "name": "Rose milk",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -197,10 +191,6 @@
           "Lemon Mint",
           "Rose milk",
           "Sour strawberry"
-        ],
-        "aura-vape": [
-          "Pineapple coconut",
-          "Rose milk"
         ]
       }
     },
@@ -208,14 +198,14 @@
       "name": "Liquid Puffy 30ml 70mg (NAJMOCNIEJSZY W POLSCE!!!)",
       "sources": [
         {
-          "shop": "aura-vape",
-          "url": "https://aura-vape.store/tproduct/707165590544-puffy-30ml-70mg"
+          "shop": "hype-smoke",
+          "url": "https://hype-smoke.store/tproduct/707165590544-puffy-30ml-70mg"
         }
       ],
       "available": [],
       "unavailable": [],
       "by_shop": {
-        "aura-vape": []
+        "hype-smoke": []
       }
     },
     "vozol": {
@@ -224,43 +214,25 @@
         {
           "shop": "hype-smoke",
           "url": "https://hype-smoke.store/tproduct/135116237972-liquid-vozol-prime"
-        },
-        {
-          "shop": "aura-vape",
-          "url": "https://aura-vape.store/tproduct/367153971184-vozol-prime-30ml-50mg"
         }
       ],
       "available": [
         {
           "name": "Berry",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Berry Peach",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Blue catton candy",
           "shops": [
             "hype-smoke"
-          ]
-        },
-        {
-          "name": "Blue Cotton Candy",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Blue Raspberry",
-          "shops": [
-            "aura-vape"
           ]
         },
         {
@@ -272,15 +244,13 @@
         {
           "name": "Blueberry ice",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Blueberry Watermelon",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -292,34 +262,25 @@
         {
           "name": "Cherry lemon peach",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Cherry Vanilla cream",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Cola Gummies",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Dragon fruit banana cherry",
           "shops": [
             "hype-smoke"
-          ]
-        },
-        {
-          "name": "Frozen Grape Soda",
-          "shops": [
-            "aura-vape"
           ]
         },
         {
@@ -341,81 +302,39 @@
           ]
         },
         {
-          "name": "Lavafire",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Lemon Grapefruit",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
           "name": "Lemon lime",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Love 777",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Lychee Mint",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Mint ice",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Peach Ice",
-          "shops": [
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Peach mango watermelon",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Perfume Lemon",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Pineapple passion fruit lime",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Pomegranate Lemonade",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Purple candy",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -433,8 +352,7 @@
         {
           "name": "Strawberry ice cream",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -446,42 +364,31 @@
         {
           "name": "Strawberry watermelon",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Vanilla Cream Tabacco",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Watermelon Bubble Gum",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Watermelon ice",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Watermelon Plum",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "White Peach Jasmine",
-          "shops": [
-            "aura-vape"
+            "hype-smoke"
           ]
         }
       ],
@@ -517,37 +424,6 @@
           "Cola Gummies",
           "Grape cherry",
           "Vanilla Cream Tabacco"
-        ],
-        "aura-vape": [
-          "Berry",
-          "Berry Peach",
-          "Blueberry Ice",
-          "Blueberry Watermelon",
-          "Blue Raspberry",
-          "Peach Ice",
-          "Peach Mango Watermelon",
-          "Perfume Lemon",
-          "Pineapple Passion Fruit Lime",
-          "Pomegranate Lemonade",
-          "Purple Candy",
-          "Strawberry Ice Cream",
-          "Strawberry Watermelon",
-          "Watermelon Bubble Gum",
-          "Watermelon Ice",
-          "Lavafire",
-          "Lemon Lime",
-          "Love 777",
-          "Frozen Grape Soda",
-          "Cherry Vanilla Cream",
-          "White Peach Jasmine",
-          "Cherry lemon peach",
-          "Watermelon Plum",
-          "Cola Gummies",
-          "Lemon Grapefruit",
-          "Lychee Mint",
-          "Blue Cotton Candy",
-          "Mint ice",
-          "Vanilla Cream Tabacco"
         ]
       }
     },
@@ -557,10 +433,6 @@
         {
           "shop": "hype-smoke",
           "url": "https://hype-smoke.store/tproduct/975504599422-liquid-elf-liq"
-        },
-        {
-          "shop": "aura-vape",
-          "url": "https://aura-vape.store/tproduct/394831865044-elfliq-30ml-50mg"
         }
       ],
       "available": [
@@ -595,12 +467,6 @@
           ]
         },
         {
-          "name": "Blackcurrant Menthol",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
           "name": "Blue raz ice",
           "shops": [
             "hype-smoke"
@@ -609,8 +475,7 @@
         {
           "name": "Blue Razz Cherry",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -658,8 +523,7 @@
         {
           "name": "Cherry cola",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -671,8 +535,7 @@
         {
           "name": "Cherry Sour raspberry",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -684,8 +547,7 @@
         {
           "name": "Cool mint",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -697,8 +559,7 @@
         {
           "name": "Elf jack",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -710,8 +571,7 @@
         {
           "name": "Fizzy Cherry",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -723,22 +583,19 @@
         {
           "name": "Grape cherry",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Green grape rose",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Jasmine raspberry",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -768,8 +625,7 @@
         {
           "name": "Ocean Mint",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -799,14 +655,7 @@
         {
           "name": "Pineapple colada",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Pineapple ice",
-          "shops": [
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -854,21 +703,13 @@
         {
           "name": "SpearMint",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Strawberry banana",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
-          ]
-        },
-        {
-          "name": "Strawberry cherry lemon",
-          "shops": [
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
@@ -890,12 +731,6 @@
           ]
         },
         {
-          "name": "Strawberry raspberry cherry ice",
-          "shops": [
-            "aura-vape"
-          ]
-        },
-        {
           "name": "Strawberry raspberry chery ice",
           "shops": [
             "hype-smoke"
@@ -904,27 +739,19 @@
         {
           "name": "Strawberry Razz Lemonade",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Strawberry snoow",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         },
         {
           "name": "Strawberry Watermelon",
           "shops": [
             "hype-smoke"
-          ]
-        },
-        {
-          "name": "Very Menthol",
-          "shops": [
-            "aura-vape"
           ]
         },
         {
@@ -936,8 +763,7 @@
         {
           "name": "Watermelon cherry",
           "shops": [
-            "hype-smoke",
-            "aura-vape"
+            "hype-smoke"
           ]
         }
       ],
@@ -999,29 +825,6 @@
           "Strawberry Razz Lemonade",
           "Strawberry Watermelon",
           "Fizzy Cherry"
-        ],
-        "aura-vape": [
-          "Cherry Cola",
-          "Cool mint",
-          "Elf jack",
-          "Grape cherry",
-          "Green grape rose",
-          "Jasmine raspberry",
-          "Pineapple colada",
-          "Pineapple ice",
-          "Spearmint",
-          "Strawberry banana",
-          "Strawberry cherry lemon",
-          "Strawberry raspberry cherry ice",
-          "Strawberry snoow",
-          "Watermelon cherry",
-          "Blackcurrant Menthol",
-          "Blue Razz Cherry",
-          "Fizzy Cherry",
-          "Ocean Mint",
-          "Strawberry Razz Lemonade",
-          "Very Menthol",
-          "Cherry Sour Raspberry"
         ]
       }
     },
