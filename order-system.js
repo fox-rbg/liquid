@@ -36,6 +36,7 @@ const CART_STORAGE_KEY = "blush_cart_v1";
 
   let cart = [];
   let selectedPay = "gotowka";
+  let enhancing = false;
   try { const s = localStorage.getItem(CART_STORAGE_KEY); if (s) cart = JSON.parse(s); } catch(e){}
   const saveCart = () => { try { localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart)); } catch(e){} };
 
@@ -125,7 +126,6 @@ const CART_STORAGE_KEY = "blush_cart_v1";
   }
 
   function updateOrderBar() {
-    ensureOrderBar();
     const lines = cartLines();
     const linesEl = document.getElementById("order-lines");
     const totalEl = document.getElementById("order-total");
@@ -141,7 +141,9 @@ const CART_STORAGE_KEY = "blush_cart_v1";
     if (qty===0) { if (idx>=0) cart.splice(idx,1); }
     else if (idx>=0) cart[idx].qty = qty;
     else cart.push({product, flavor, qty, unitPrice});
-    saveCart(); refreshBadges(); updateOrderBar();
+    saveCart(); 
+    refreshBadges(); 
+    updateOrderBar();
   }
 
   function refreshBadges() {
@@ -154,29 +156,48 @@ const CART_STORAGE_KEY = "blush_cart_v1";
       tag.classList.toggle("has-qty", q>0);
       let badge = tag.querySelector(".flavor-qty-badge");
       if (q>0) {
-        if (!badge) { badge = document.createElement("span"); badge.className="flavor-qty-badge"; tag.appendChild(badge); }
+        if (!badge) { 
+          badge = document.createElement("span"); 
+          badge.className="flavor-qty-badge"; 
+          tag.appendChild(badge); 
+        }
         badge.textContent = q;
       } else if (badge) badge.remove();
     });
   }
 
   function enhanceFlavorTags(box) {
-    if (!box) return;
+    if (!box || enhancing) return;
+    enhancing = true;
     const productName = document.getElementById("modal-title")?.textContent?.trim() || "Produkt";
     const unitPrice = parsePrice(document.getElementById("modal-price")?.textContent || "");
     box.querySelectorAll(".flavor-tag").forEach(tag => {
-      if (tag.dataset.orderBound==="1") return;
+      if (tag.dataset.orderBound === "1") return;
       tag.dataset.orderBound = "1";
       tag.classList.add("selectable");
       const fname = (tag.getAttribute("data-flavor") || tag.textContent || "").trim();
       tag.setAttribute("data-flavor", fname);
       const minus = document.createElement("button");
-      minus.type="button"; minus.className="flavor-qty-minus"; minus.textContent="−";
-      minus.onclick = e => { e.stopPropagation(); const cur = cart.find(i=>i.product===productName&&i.flavor===fname); setQty(productName, fname, unitPrice, (cur?.qty||0)-1); };
+      minus.type="button"; 
+      minus.className="flavor-qty-minus"; 
+      minus.textContent="−";
+      minus.onclick = e => { 
+        e.stopPropagation(); 
+        e.preventDefault();
+        const cur = cart.find(i=>i.product===productName&&i.flavor===fname); 
+        setQty(productName, fname, unitPrice, (cur?.qty||0)-1); 
+      };
       tag.appendChild(minus);
-      tag.onclick = e => { if (e.target===minus) return; e.stopPropagation(); const cur = cart.find(i=>i.product===productName&&i.flavor===fname); setQty(productName, fname, unitPrice, (cur?.qty||0)+1); };
+      tag.onclick = e => { 
+        if (e.target === minus || e.target.closest(".flavor-qty-minus")) return; 
+        e.stopPropagation(); 
+        e.preventDefault();
+        const cur = cart.find(i=>i.product===productName&&i.flavor===fname); 
+        setQty(productName, fname, unitPrice, (cur?.qty||0)+1); 
+      };
     });
     refreshBadges();
+    enhancing = false;
   }
 
   function parsePrice(t) { if (!t) return 0; const m = String(t).replace(",",".").match(/(\d+(?:\.\d+)?)/); return m ? parseFloat(m[1]) : 0; }
@@ -225,18 +246,27 @@ const CART_STORAGE_KEY = "blush_cart_v1";
 
   function escapeHtml(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 
+  let obsTimeout;
   const obs = new MutationObserver(() => {
-    const box = document.getElementById("modal-flavors");
-    if (box) enhanceFlavorTags(box);
-    ensureOrderBar();
+    clearTimeout(obsTimeout);
+    obsTimeout = setTimeout(() => {
+      const box = document.getElementById("modal-flavors");
+      if (box) enhanceFlavorTags(box);
+      ensureOrderBar();
+      updateOrderBar();
+    }, 50);
   });
 
   function boot() {
     const box = document.getElementById("modal-flavors");
-    if (box) { obs.observe(box,{childList:true,subtree:true}); enhanceFlavorTags(box); }
+    if (box) { 
+      obs.observe(box,{childList:true,subtree:true}); 
+      enhanceFlavorTags(box); 
+    }
     const modal = document.getElementById("modal");
-    if (modal) obs.observe(modal,{attributes:true,attributeFilter:["class"],subtree:true});
-    ensureOrderBar(); updateOrderBar();
+    if (modal) obs.observe(modal,{attributes:true,attributeFilter:["class"]});
+    ensureOrderBar(); 
+    updateOrderBar();
   }
   if (document.readyState==="loading") document.addEventListener("DOMContentLoaded", boot); else boot();
 
@@ -244,8 +274,12 @@ const CART_STORAGE_KEY = "blush_cart_v1";
   if (typeof prev==="function") {
     window.openModal = function() {
       const r = prev.apply(this, arguments);
-      setTimeout(()=>{ enhanceFlavorTags(document.getElementById("modal-flavors")); ensureOrderBar(); updateOrderBar(); },80);
-      setTimeout(()=>{ enhanceFlavorTags(document.getElementById("modal-flavors")); updateOrderBar(); },400);
+      setTimeout(()=>{ 
+        const box = document.getElementById("modal-flavors");
+        if (box) enhanceFlavorTags(box); 
+        ensureOrderBar(); 
+        updateOrderBar(); 
+      },100);
       return r;
     };
   }
