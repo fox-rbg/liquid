@@ -172,50 +172,32 @@ function classifyAndCount(orders) {
 
   orders.forEach(o => {
     const lines = (o.smaki || "").split(";").map(s => s.trim()).filter(Boolean);
-    const totalSztuk = parseInt(o.sztuk, 10) || 0;
 
-    if (lines.length === 0) {
-      liquids += totalSztuk;
-      return;
-    }
-
-    let counted = 0;
     lines.forEach(line => {
+      const qtyMatch = line.match(/×\s*(\d+)/);
+      const qty = qtyMatch ? parseInt(qtyMatch[1], 10) : 1;
+
       const low = line.toLowerCase();
 
-      // Jednorazówki
       if (/hyperbar|merry mi|uwin|tornado|elf bar|maskking/.test(low)) {
-        disposables++;
-        counted++;
+        disposables += qty;
       }
-      // Cartridge
       else if (/oxva.*cartridge|cartridge.*oxva|xlim cartridge/.test(low)) {
-        cartOxva++;
-        counted++;
+        cartOxva += qty;
       }
       else if (/vaporesso.*cartridge|cartridge.*xros|xros cartridge/.test(low)) {
-        cartXros++;
-        counted++;
+        cartXros += qty;
       }
-      // Urządzenia
       else if (/oxva.*xlim go|xlim go.*oxva/.test(low)) {
-        oxvaDevices++;
-        counted++;
+        oxvaDevices += qty;
       }
       else if (/vaporesso.*xros 5|xros 5 mini/.test(low)) {
-        vaporessoDevices++;
-        counted++;
+        vaporessoDevices += qty;
       }
-      // Cała reszta = liquidy
       else {
-        liquids++;
-        counted++;
+        liquids += qty;
       }
     });
-
-    if (totalSztuk > counted) {
-      liquids += (totalSztuk - counted);
-    }
   });
 
   return { liquids, disposables, cartOxva, cartXros, oxvaDevices, vaporessoDevices };
