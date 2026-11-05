@@ -292,15 +292,23 @@ async function renderOrders() {
     `).join("");
 
     const totalLiquids = countLiquidsFromOrders(orders);
-    const sellPrice = 45;
+    const sellPriceLiquid = 45;
     const wholesalePrice = getWholesalePricePerPiece(totalLiquids);
-    const liquidRevenue = totalLiquids * sellPrice;
+    const liquidRevenue = totalLiquids * sellPriceLiquid;
     const liquidCost = totalLiquids * wholesalePrice;
 
-    const cartridgeCost = 60;
-    const disposableCost = 70;
+    // Inne produkty (stałe przykładowe – możesz później liczyć z zamówień)
+    const oxvaBuy = 90, oxvaSell = 120;
+    const vaporessoBuy = 90, vaporessoSell = 110;
+    const cartOxvaSell = 75;
+    const cartVaporessoSell = 60;
+    const disposableSell = 80;
+
     const deliveryCost = 30;
-    const totalCosts = liquidCost + cartridgeCost + disposableCost + deliveryCost;
+
+    // Na razie koszty innych rzeczy jako 0 (dopóki nie liczymy ilości z zamówień)
+    const otherCosts = deliveryCost;
+    const totalCosts = liquidCost + otherCosts;
     const profit = liquidRevenue - totalCosts;
 
     const byPerson = {};
@@ -322,14 +330,19 @@ async function renderOrders() {
       <hr style="border-color:#2a2a3a;margin:1rem 0">
       <div>
         <b>Łącznie liquidów:</b> ${totalLiquids} szt.<br>
-        <b>Sprzedaż (45 zł/szt):</b> ${liquidRevenue} zł<br>
-        <b>Koszt hurtowy (${wholesalePrice} zł/szt):</b> ${liquidCost} zł<br>
-        <b>Inne koszty:</b><br>
-        • Cartridge: ${cartridgeCost} zł<br>
-        • Jednorazówki: ${disposableCost} zł<br>
-        • Dostawa: ${deliveryCost} zł<br>
+        <b>Sprzedaż liquidów (45 zł/szt):</b> ${liquidRevenue} zł<br>
+        <b>Koszt hurtowy liquidów (${wholesalePrice} zł/szt):</b> ${liquidCost} zł<br>
+        <b>Dostawa:</b> ${deliveryCost} zł<br>
         <b>Razem koszty:</b> ${totalCosts} zł<br>
-        <b style="color:#3dd68c">Zarobek na czysto: ${profit} zł</b>
+        <b style="color:#3dd68c">Zarobek na czysto (liquid + dostawa): ${profit} zł</b>
+        <div style="margin-top:0.6rem;font-size:0.75rem;color:#a0a0b0">
+          Cennik pozostałych:<br>
+          • Jednorazówki: sprzedaż 80 zł<br>
+          • Cartridge OXVA: sprzedaż 75 zł<br>
+          • Cartridge Vaporesso: sprzedaż 60 zł<br>
+          • OXVA: kupno 90 zł / sprzedaż 120 zł<br>
+          • Vaporesso: kupno 90 zł / sprzedaż 110 zł
+        </div>
       </div>
     `;
 
