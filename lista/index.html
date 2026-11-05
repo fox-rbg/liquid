@@ -152,7 +152,7 @@ function parseLine(raw) {
 }
 function esc(s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 
-function getLiquidPricePerPiece(totalQty) {
+function getWholesalePricePerPiece(totalQty) {
   if (totalQty >= 100) return 26;
   if (totalQty >= 50) return 28;
   if (totalQty >= 20) return 32;
@@ -292,13 +292,15 @@ async function renderOrders() {
     `).join("");
 
     const totalLiquids = countLiquidsFromOrders(orders);
-    const pricePerPiece = getLiquidPricePerPiece(totalLiquids);
-    const liquidRevenue = totalLiquids * pricePerPiece;
+    const sellPrice = 45;
+    const wholesalePrice = getWholesalePricePerPiece(totalLiquids);
+    const liquidRevenue = totalLiquids * sellPrice;
+    const liquidCost = totalLiquids * wholesalePrice;
 
     const cartridgeCost = 60;
     const disposableCost = 70;
     const deliveryCost = 30;
-    const totalCosts = cartridgeCost + disposableCost + deliveryCost;
+    const totalCosts = liquidCost + cartridgeCost + disposableCost + deliveryCost;
     const profit = liquidRevenue - totalCosts;
 
     const byPerson = {};
@@ -320,9 +322,9 @@ async function renderOrders() {
       <hr style="border-color:#2a2a3a;margin:1rem 0">
       <div>
         <b>Łącznie liquidów:</b> ${totalLiquids} szt.<br>
-        <b>Cena za sztukę:</b> ${pricePerPiece} zł<br>
-        <b>Przychód z liquidów:</b> ${liquidRevenue} zł<br>
-        <b>Koszty:</b><br>
+        <b>Sprzedaż (45 zł/szt):</b> ${liquidRevenue} zł<br>
+        <b>Koszt hurtowy (${wholesalePrice} zł/szt):</b> ${liquidCost} zł<br>
+        <b>Inne koszty:</b><br>
         • Cartridge: ${cartridgeCost} zł<br>
         • Jednorazówki: ${disposableCost} zł<br>
         • Dostawa: ${deliveryCost} zł<br>
