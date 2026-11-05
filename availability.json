@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-04T18:26:34.221211+00:00",
+  "updated_at": "2026-11-05T23:27:42.915403+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -202,7 +202,14 @@
           "url": "https://hype-smoke.store/tproduct/707165590544-puffy-30ml-70mg"
         }
       ],
-      "available": [],
+      "available": [
+        {
+          "name": "Liquid Puffy 30ml 70mg (NAJMOCNIEJSZY W POLSCE!!!)",
+          "shops": [
+            "hype-smoke"
+          ]
+        }
+      ],
       "unavailable": [],
       "by_shop": {
         "hype-smoke": []
@@ -231,18 +238,6 @@
         },
         {
           "name": "Blue catton candy",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Blue Razz Lemon",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Blueberry ice",
           "shops": [
             "hype-smoke"
           ]
@@ -290,12 +285,6 @@
           ]
         },
         {
-          "name": "Kiwi Passion Fruit Guava",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Lava Fire",
           "shops": [
             "hype-smoke"
@@ -333,12 +322,6 @@
         },
         {
           "name": "Purple candy",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Sour Apple Ice",
           "shops": [
             "hype-smoke"
           ]
@@ -397,12 +380,9 @@
         "hype-smoke": [
           "Berry",
           "Berry Peach",
-          "Blue Razz Lemon",
-          "Blueberry ice",
           "Blueberry Watermelon",
           "Cherry cola",
           "Dragon fruit banana cherry",
-          "Kiwi Passion Fruit Guava",
           "Lava Fire",
           "Lemon lime",
           "Peach mango watermelon",
@@ -410,7 +390,6 @@
           "Pineapple passion fruit lime",
           "Pomegranate Lemonade",
           "Purple candy",
-          "Sour Apple Ice",
           "Strawberry kiwi",
           "Strawberry ice",
           "Strawberry ice cream",
@@ -504,12 +483,6 @@
         },
         {
           "name": "Bluebery rose mint",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Bluebery sour raspberry",
           "shops": [
             "hype-smoke"
           ]
@@ -636,12 +609,6 @@
         },
         {
           "name": "Peach ice",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Pina colada",
           "shops": [
             "hype-smoke"
           ]
@@ -780,7 +747,6 @@
           "Blueberry",
           "Bluebery raspberry pomergranate",
           "Bluebery rose mint",
-          "Bluebery sour raspberry",
           "Cherry",
           "Cherry cola",
           "Cherry lemon peach",
@@ -797,7 +763,6 @@
           "Lemon lime",
           "PB cloud",
           "Peach ice",
-          "Pina colada",
           "Pineaple ice",
           "Pineapple colada",
           "Pink grapefruit",
@@ -942,7 +907,7 @@
         ]
       }
     },
-    "oxva": {
+    "oxva_liquid": {
       "name": "Liquid OXVA 30ml 20mg",
       "sources": [
         {
@@ -969,6 +934,850 @@
         "hype-smoke": [
           "Sour pineapple ice",
           "Strawberry banana"
+        ]
+      }
+    },
+    "oxva_xlim_go2": {
+      "name": "OXVA XLIM GO 2",
+      "sources": [
+        {
+          "shop": "hype-smoke",
+          "url": "https://hype-smoke.store/tproduct/915839227882-oxva-xlim-go-2"
+        }
+      ],
+      "available": [
+        {
+          "name": "Blue Ripple",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Green Ripple",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Light Brown Shadow",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Metal Blue",
+          "shops": [
+            "hype-smoke"
+          ]
+        }
+      ],
+      "unavailable": [],
+      "by_shop": {
+        "hype-smoke": [
+          "Light Brown Shadow",
+          "Metal Blue",
+          "Green Ripple",
+          "Blue Ripple"
+        ]
+      }
+    },
+    "cartridge_oxva_3ml": {
+      "name": "CARTRIDGE OXVA 3 ML",
+      "sources": [
+        {
+          "shop": "hype-smoke",
+          "url": "https://hype-smoke.store/tproduct/277880697462-cartridge-oxva-3-ml"
+        }
+      ],
+      "available": [
+        {
+          "name": "0,4",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "0,6",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "0,8",
+          "shops": [
+            "hype-smoke"
+          ]
+        }
+      ],
+      "unavailable": [],
+      "by_shop": {
+        "hype-smoke": [
+          "0,4",
+          "0,6",
+          "0,8"
+        ]
+      }
+    },
+    "vaporesso_xros5_mini": {
+      "name": "VAPORESSO XROS 5 MINI",
+      "sources": [
+        {
+          "shop": "hype-smoke",
+          "url": "https://hype-smoke.store/tproduct/867989851542-vaporesso-xros-5-mini"
+        }
+      ],
+      "available": [
+        {
+          "name": "Black",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Flowing Blue",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Flowing Green",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Flowing Pink",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Pastel Crystal",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Purple",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Rose Red",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Sky Blue",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Titanium silver",
+          "shops": [
+            "hype-smoke"
+          ]
+        }
+      ],
+      "unavailable": [],
+      "by_shop": {
+        "hype-smoke": [
+          "Pastel Crystal",
+          "Rose Red",
+          "Purple",
+          "Titanium silver",
+          "Black",
+          "Flowing Blue",
+          "Flowing Green",
+          "Flowing Pink",
+          "Sky Blue"
+        ]
+      }
+    },
+    "cartridge_xros_3ml": {
+      "name": "CARTRIDGE XROS 3 ML",
+      "sources": [
+        {
+          "shop": "hype-smoke",
+          "url": "https://hype-smoke.store/tproduct/404876258232-cartridge-xros-3-ml"
+        }
+      ],
+      "available": [
+        {
+          "name": "0,4",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "0,8",
+          "shops": [
+            "hype-smoke"
+          ]
+        }
+      ],
+      "unavailable": [],
+      "by_shop": {
+        "hype-smoke": [
+          "0,4",
+          "0,8"
+        ]
+      }
+    },
+    "elfbar_d3_25000": {
+      "name": "ELF BAR D3 25000",
+      "sources": [
+        {
+          "shop": "hype-smoke",
+          "url": "https://hype-smoke.store/tproduct/252759355612-elf-bar-d3-25000"
+        }
+      ],
+      "available": [
+        {
+          "name": "Apple peach",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Blackberry cranberry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Blue razz ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Blueberry ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Blueberry raspberry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Double apple",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Grape cherry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Grape ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Grape mint",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Kiwi passion fruit guava",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Lemon lime",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Peach berry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Peach ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Strawb raspberry cherry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Strawberry grape",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Strawberry ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Strawberry watermelon",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Watermelon bubblegum",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Watermelon ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Watermelon lemon",
+          "shops": [
+            "hype-smoke"
+          ]
+        }
+      ],
+      "unavailable": [],
+      "by_shop": {
+        "hype-smoke": [
+          "Apple peach",
+          "Blackberry cranberry",
+          "Blue razz ice",
+          "Blueberry ice",
+          "Blueberry raspberry",
+          "Double apple",
+          "Grape cherry",
+          "Grape ice",
+          "Kiwi passion fruit guava",
+          "Peach berry",
+          "Peach ice",
+          "Strawberry grape",
+          "Watermelon bubblegum",
+          "Watermelon ice",
+          "Watermelon lemon",
+          "Grape mint",
+          "Lemon lime",
+          "Strawb raspberry cherry",
+          "Strawberry ice",
+          "Strawberry watermelon"
+        ]
+      }
+    },
+    "maskking_100000": {
+      "name": "MASKKING 100000",
+      "sources": [
+        {
+          "shop": "hype-smoke",
+          "url": "https://hype-smoke.store/tproduct/468124811874-maskking-100000"
+        }
+      ],
+      "available": [
+        {
+          "name": "Alaska Ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Banana Taffy Freeze",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Black Ice Dragonfruit",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Blue Razz Ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Frozen Pina Colada",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Fruity Cool Strawberry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Grape Slush",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Juicy Peach Ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Mexico Mango",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Omg B Burst",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Sour Apple Ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Sour Triple Berry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Strawberry B-Burst",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Strawberry Watermelon",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Triple Cherry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Watermelon Ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "White Gummy Ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Wild Cherry Slush",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Zesty Grapefruit",
+          "shops": [
+            "hype-smoke"
+          ]
+        }
+      ],
+      "unavailable": [],
+      "by_shop": {
+        "hype-smoke": [
+          "Strawberry B-Burst",
+          "Banana Taffy Freeze",
+          "Wild Cherry Slush",
+          "Mexico Mango",
+          "Frozen Pina Colada",
+          "White Gummy Ice",
+          "Watermelon Ice",
+          "Juicy Peach Ice",
+          "Grape Slush",
+          "Blue Razz Ice",
+          "Sour Apple Ice",
+          "Strawberry Watermelon",
+          "Omg B Burst",
+          "Fruity Cool Strawberry",
+          "Alaska Ice",
+          "Sour Triple Berry",
+          "Triple Cherry",
+          "Black Ice Dragonfruit",
+          "Zesty Grapefruit"
+        ]
+      }
+    },
+    "uwin_tornado_60000": {
+      "name": "UWIN TORNADO 60000",
+      "sources": [
+        {
+          "shop": "hype-smoke",
+          "url": "https://hype-smoke.store/tproduct/299442333552-uwin-tornado-60000"
+        }
+      ],
+      "available": [
+        {
+          "name": "Love 66 / Strawberry Kiwi / Blue Razz Ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Strawberry Banana / Lemon Lime / Mixed Fruit",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Strawberry Vanilla Cola / Cherry Cola / Grape Berry",
+          "shops": [
+            "hype-smoke"
+          ]
+        }
+      ],
+      "unavailable": [],
+      "by_shop": {
+        "hype-smoke": [
+          "Love 66 / Strawberry Kiwi / Blue Razz Ice",
+          "Strawberry Banana / Lemon Lime / Mixed Fruit",
+          "Strawberry Vanilla Cola / Cherry Cola / Grape Berry"
+        ]
+      }
+    },
+    "merry_mi_blade_30000": {
+      "name": "MERRY MI BLADE 30000",
+      "sources": [
+        {
+          "shop": "hype-smoke",
+          "url": "https://hype-smoke.store/tproduct/317723692834-merry-mi-blade-30000"
+        }
+      ],
+      "available": [
+        {
+          "name": "Aloe Blackcurrant",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Black Dragon Ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Blueberry Mint",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Breezy Lemon Berry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Cherry Pomegranate Cranberry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Crazy Blueberry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Fanta",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Fizzy Cherry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Forest Berries",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Grape Berry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Grape Mint",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Grape Raspberry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Grape Slush",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Grapefruit Refresher",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Honey Peach",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Iced Peach Melon",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Jager Red Energy",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Lemon Mojito",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Lime Apple Mint",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Love66",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Lush Ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Mixed Berries",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Mr. Blue",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Orange Dragon",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Peach Guava",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Peach Lemonade",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Prime Strawberry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Red Energy Ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Red Raspberry Strawberry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Sangria",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Sour Cherry Candy",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Strawberry Raspberry Cherry Ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Strawmelon Ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Sunset Lime",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Tropical Citrus Fizz",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Valencia Orange",
+          "shops": [
+            "hype-smoke"
+          ]
+        }
+      ],
+      "unavailable": [],
+      "by_shop": {
+        "hype-smoke": [
+          "Aloe Blackcurrant",
+          "Black Dragon Ice",
+          "Blueberry Mint",
+          "Breezy Lemon Berry",
+          "Cherry Pomegranate Cranberry",
+          "Crazy Blueberry",
+          "Fanta",
+          "Fizzy Cherry",
+          "Forest Berries",
+          "Grape Berry",
+          "Grape Mint",
+          "Grape Raspberry",
+          "Grape Slush",
+          "Grapefruit Refresher",
+          "Honey Peach",
+          "Iced Peach Melon",
+          "Jager Red Energy",
+          "Lemon Mojito",
+          "Lime Apple Mint",
+          "Love66",
+          "Lush Ice",
+          "Mixed Berries",
+          "Mr. Blue",
+          "Orange Dragon",
+          "Peach Guava",
+          "Peach Lemonade",
+          "Prime Strawberry",
+          "Red Energy Ice",
+          "Red Raspberry Strawberry",
+          "Sangria",
+          "Sour Cherry Candy",
+          "Strawberry Raspberry Cherry Ice",
+          "Strawmelon Ice",
+          "Sunset Lime",
+          "Tropical Citrus Fizz",
+          "Valencia Orange"
+        ]
+      }
+    },
+    "hyperbar_120000": {
+      "name": "HYPERBAR 120000",
+      "sources": [
+        {
+          "shop": "hype-smoke",
+          "url": "https://hype-smoke.store/tproduct/552829728154-hyperbar-120000"
+        }
+      ],
+      "available": [
+        {
+          "name": "Frozen pina colada",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Mango slush",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Matcha creeme",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Sour gush",
+          "shops": [
+            "hype-smoke"
+          ]
+        }
+      ],
+      "unavailable": [],
+      "by_shop": {
+        "hype-smoke": [
+          "Matcha creeme",
+          "Mango slush",
+          "Frozen pina colada",
+          "Sour gush"
         ]
       }
     }
