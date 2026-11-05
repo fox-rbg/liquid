@@ -336,7 +336,6 @@ async function renderOrders() {
     const counts = classifyAndCount(orders);
     const wholesale = getWholesalePricePerPiece(counts.liquids);
 
-    // Przychody
     const liquidRevenue = counts.liquids * 45;
     const disposableRevenue = counts.disposables * 80;
     const cartOxvaRevenue = counts.cartOxva * 75;
@@ -344,7 +343,6 @@ async function renderOrders() {
     const oxvaRevenue = counts.oxvaDevices * 120;
     const vaporessoRevenue = counts.vaporessoDevices * 110;
 
-    // Koszty
     const liquidCost = counts.liquids * wholesale;
     const disposableCost = counts.disposables * 75;
     const cartOxvaCost = counts.cartOxva * 60;
@@ -400,7 +398,7 @@ document.getElementById("btnRefreshOrders").onclick = renderOrders;
 document.getElementById("btnClearOrders").onclick = async () => {
   if (!confirm("Na pewno usunąć WSZYSTKIE zamówienia z Supabase?")) return;
   try {
-    await fetch(SUPABASE_URL + "/rest/v1/zamowienia", {
+    const res = await fetch(SUPABASE_URL + "/rest/v1/zamowienia?id=gt.0", {
       method: "DELETE",
       headers: {
         "apikey": SUPABASE_KEY,
@@ -408,6 +406,7 @@ document.getElementById("btnClearOrders").onclick = async () => {
         "Prefer": "return=minimal"
       }
     });
+    if (!res.ok) throw new Error("Błąd " + res.status);
     alert("Zamówienia wyczyszczone.");
     renderOrders();
   } catch(e) {
