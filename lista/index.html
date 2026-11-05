@@ -172,20 +172,50 @@ function classifyAndCount(orders) {
 
   orders.forEach(o => {
     const lines = (o.smaki || "").split(";").map(s => s.trim()).filter(Boolean);
-    const totalSztuk = parseInt(o.sztuk, 10) || lines.length || 0;
+    const totalSztuk = parseInt(o.sztuk, 10) || 0;
 
+    if (lines.length === 0) {
+      liquids += totalSztuk;
+      return;
+    }
+
+    let counted = 0;
     lines.forEach(line => {
       const low = line.toLowerCase();
-      if (/jednoraz|elf bar|maskking|uwin|merry|hyperbar|tornado|blade/.test(low)) disposables++;
-      else if (/cartridge.*oxva|oxva.*cartridge/.test(low)) cartOxva++;
-      else if (/cartridge.*xros|xros.*cartridge/.test(low)) cartXros++;
-      else if (/oxva.*xlim|xlim.*oxva|oxva go/.test(low)) oxvaDevices++;
-      else if (/vaporesso|xros/.test(low) && !/cartridge/.test(low)) vaporessoDevices++;
-      else liquids++;
+
+      // Jednorazówki
+      if (/hyperbar|merry mi|uwin|tornado|elf bar|maskking/.test(low)) {
+        disposables++;
+        counted++;
+      }
+      // Cartridge
+      else if (/oxva.*cartridge|cartridge.*oxva|xlim cartridge/.test(low)) {
+        cartOxva++;
+        counted++;
+      }
+      else if (/vaporesso.*cartridge|cartridge.*xros|xros cartridge/.test(low)) {
+        cartXros++;
+        counted++;
+      }
+      // Urządzenia
+      else if (/oxva.*xlim go|xlim go.*oxva/.test(low)) {
+        oxvaDevices++;
+        counted++;
+      }
+      else if (/vaporesso.*xros 5|xros 5 mini/.test(low)) {
+        vaporessoDevices++;
+        counted++;
+      }
+      // Cała reszta = liquidy
+      else {
+        liquids++;
+        counted++;
+      }
     });
 
-    // Jeśli nie udało się nic rozpoznać, traktuj jako liquidy
-    if (lines.length === 0) liquids += totalSztuk;
+    if (totalSztuk > counted) {
+      liquids += (totalSztuk - counted);
+    }
   });
 
   return { liquids, disposables, cartOxva, cartXros, oxvaDevices, vaporessoDevices };
@@ -326,7 +356,7 @@ async function renderOrders() {
     const vaporessoCost = counts.vaporessoDevices * 90;
 
     const totalRevenue = liquidRevenue + disposableRevenue + cartOxvaRevenue + cartXrosRevenue + oxvaRevenue + vaporessoRevenue;
-    const totalCosts = liquidCost + oxvaCost + vaporessoCost + 30; // + dostawa
+    const totalCosts = liquidCost + oxvaCost + vaporessoCost + 30;
     const profit = totalRevenue - totalCosts;
 
     const byPerson = {};
@@ -351,8 +381,8 @@ async function renderOrders() {
         <b>Jednorazówki:</b> ${counts.disposables} szt. → ${disposableRevenue} zł<br>
         <b>Cartridge OXVA:</b> ${counts.cartOxva} szt. → ${cartOxvaRevenue} zł<br>
         <b>Cartridge XROS:</b> ${counts.cartXros} szt. → ${cartXrosRevenue} zł<br>
-        <b>OXVA:</b> ${counts.oxvaDevices} szt. → sprzedaż ${oxvaRevenue} zł / koszt ${oxvaCost} zł<br>
-        <b>Vaporesso:</b> ${counts.vaporessoDevices} szt. → sprzedaż ${vaporessoRevenue} zł / koszt ${vaporessoCost} zł<br>
+        <b>OXVA XLIM GO 2:</b> ${counts.oxvaDevices} szt. → sprzedaż ${oxvaRevenue} zł / koszt ${oxvaCost} zł<br>
+        <b>Vaporesso XROS 5 Mini:</b> ${counts.vaporessoDevices} szt. → sprzedaż ${vaporessoRevenue} zł / koszt ${vaporessoCost} zł<br>
         <b>Dostawa:</b> 30 zł<br>
         <b>Razem przychód:</b> ${totalRevenue} zł<br>
         <b>Razem koszty:</b> ${totalCosts} zł<br>
