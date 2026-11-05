@@ -162,13 +162,33 @@ function getWholesalePricePerPiece(totalQty) {
   return 45;
 }
 
-function countLiquidsFromOrders(orders) {
-  let total = 0;
+function classifyAndCount(orders) {
+  let liquids = 0;
+  let disposables = 0;
+  let cartOxva = 0;
+  let cartXros = 0;
+  let oxvaDevices = 0;
+  let vaporessoDevices = 0;
+
   orders.forEach(o => {
-    const qty = parseInt(o.sztuk, 10) || 0;
-    total += qty;
+    const lines = (o.smaki || "").split(";").map(s => s.trim()).filter(Boolean);
+    const totalSztuk = parseInt(o.sztuk, 10) || lines.length || 0;
+
+    lines.forEach(line => {
+      const low = line.toLowerCase();
+      if (/jednoraz|elf bar|maskking|uwin|merry|hyperbar|tornado|blade/.test(low)) disposables++;
+      else if (/cartridge.*oxva|oxva.*cartridge/.test(low)) cartOxva++;
+      else if (/cartridge.*xros|xros.*cartridge/.test(low)) cartXros++;
+      else if (/oxva.*xlim|xlim.*oxva|oxva go/.test(low)) oxvaDevices++;
+      else if (/vaporesso|xros/.test(low) && !/cartridge/.test(low)) vaporessoDevices++;
+      else liquids++;
+    });
+
+    // Jeśli nie udało się nic rozpoznać, traktuj jako liquidy
+    if (lines.length === 0) liquids += totalSztuk;
   });
-  return total;
+
+  return { liquids, disposables, cartOxva, cartXros, oxvaDevices, vaporessoDevices };
 }
 
 function unlock() {
@@ -291,25 +311,23 @@ async function renderOrders() {
       </div>
     `).join("");
 
-    const totalLiquids = countLiquidsFromOrders(orders);
-    const sellPriceLiquid = 45;
-    const wholesalePrice = getWholesalePricePerPiece(totalLiquids);
-    const liquidRevenue = totalLiquids * sellPriceLiquid;
-    const liquidCost = totalLiquids * wholesalePrice;
+    const counts = classifyAndCount(orders);
+    const wholesale = getWholesalePricePerPiece(counts.liquids);
 
-    // Inne produkty (stałe przykładowe – możesz później liczyć z zamówień)
-    const oxvaBuy = 90, oxvaSell = 120;
-    const vaporessoBuy = 90, vaporessoSell = 110;
-    const cartOxvaSell = 75;
-    const cartVaporessoSell = 60;
-    const disposableSell = 80;
+    const liquidRevenue = counts.liquids * 45;
+    const liquidCost = counts.liquids * wholesale;
 
-    const deliveryCost = 30;
+    const disposableRevenue = counts.disposables * 80;
+    const cartOxvaRevenue = counts.cartOxva * 75;
+    const cartXrosRevenue = counts.cartXros * 60;
+    const oxvaRevenue = counts.oxvaDevices * 120;
+    const oxvaCost = counts.oxvaDevices * 90;
+    const vaporessoRevenue = counts.vaporessoDevices * 110;
+    const vaporessoCost = counts.vaporessoDevices * 90;
 
-    // Na razie koszty innych rzeczy jako 0 (dopóki nie liczymy ilości z zamówień)
-    const otherCosts = deliveryCost;
-    const totalCosts = liquidCost + otherCosts;
-    const profit = liquidRevenue - totalCosts;
+    const totalRevenue = liquidRevenue + disposableRevenue + cartOxvaRevenue + cartXrosRevenue + oxvaRevenue + vaporessoRevenue;
+    const totalCosts = liquidCost + oxvaCost + vaporessoCost + 30; // + dostawa
+    const profit = totalRevenue - totalCosts;
 
     const byPerson = {};
     orders.forEach(o => {
@@ -329,20 +347,16 @@ async function renderOrders() {
     summaryHtml += `
       <hr style="border-color:#2a2a3a;margin:1rem 0">
       <div>
-        <b>Łącznie liquidów:</b> ${totalLiquids} szt.<br>
-        <b>Sprzedaż liquidów (45 zł/szt):</b> ${liquidRevenue} zł<br>
-        <b>Koszt hurtowy liquidów (${wholesalePrice} zł/szt):</b> ${liquidCost} zł<br>
-        <b>Dostawa:</b> ${deliveryCost} zł<br>
+        <b>Liquidy:</b> ${counts.liquids} szt. → sprzedaż ${liquidRevenue} zł / koszt ${liquidCost} zł<br>
+        <b>Jednorazówki:</b> ${counts.disposables} szt. → ${disposableRevenue} zł<br>
+        <b>Cartridge OXVA:</b> ${counts.cartOxva} szt. → ${cartOxvaRevenue} zł<br>
+        <b>Cartridge XROS:</b> ${counts.cartXros} szt. → ${cartXrosRevenue} zł<br>
+        <b>OXVA:</b> ${counts.oxvaDevices} szt. → sprzedaż ${oxvaRevenue} zł / koszt ${oxvaCost} zł<br>
+        <b>Vaporesso:</b> ${counts.vaporessoDevices} szt. → sprzedaż ${vaporessoRevenue} zł / koszt ${vaporessoCost} zł<br>
+        <b>Dostawa:</b> 30 zł<br>
+        <b>Razem przychód:</b> ${totalRevenue} zł<br>
         <b>Razem koszty:</b> ${totalCosts} zł<br>
-        <b style="color:#3dd68c">Zarobek na czysto (liquid + dostawa): ${profit} zł</b>
-        <div style="margin-top:0.6rem;font-size:0.75rem;color:#a0a0b0">
-          Cennik pozostałych:<br>
-          • Jednorazówki: sprzedaż 80 zł<br>
-          • Cartridge OXVA: sprzedaż 75 zł<br>
-          • Cartridge Vaporesso: sprzedaż 60 zł<br>
-          • OXVA: kupno 90 zł / sprzedaż 120 zł<br>
-          • Vaporesso: kupno 90 zł / sprzedaż 110 zł
-        </div>
+        <b style="color:#3dd68c">Zarobek na czysto: ${profit} zł</b>
       </div>
     `;
 
