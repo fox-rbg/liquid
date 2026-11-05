@@ -351,3 +351,12 @@ document.getElementById("btnClearOrders").onclick = async () => {
         "Prefer": "return=minimal"
       }
     });
+    alert("Zamówienia wyczyszczone.");
+    renderOrders();
+  } catch(e) {
+    alert("Błąd czyszczenia: " + e.message);
+  }
+};
+</script>
+</body>
+</html>
