@@ -189,27 +189,21 @@ function classifyAndCount(orders) {
 
       const low = line.toLowerCase();
 
-      // Jednorazówki
       if (/hyperbar|merry mi|uwin|tornado|elf bar|maskking/.test(low)) {
         disposables += qty;
       }
-      // Cartridge OXVA (ma Ω)
       else if (/oxva/.test(low) && /ω|ohm/.test(low)) {
         cartOxva += qty;
       }
-      // Cartridge XROS
       else if (/vaporesso|xros/.test(low) && /ω|ohm|cartridge/.test(low)) {
         cartXros += qty;
       }
-      // OXVA XLIM GO 2 (kolor z listy)
       else if (isOxvaColor(low)) {
         oxvaDevices += qty;
       }
-      // Vaporesso XROS 5 Mini (bez Ω i bez cartridge)
       else if (/vaporesso|xros/.test(low) && !/ω|ohm|cartridge/.test(low)) {
         vaporessoDevices += qty;
       }
-      // Cała reszta = liquidy
       else {
         liquids += qty;
       }
@@ -342,19 +336,25 @@ async function renderOrders() {
     const counts = classifyAndCount(orders);
     const wholesale = getWholesalePricePerPiece(counts.liquids);
 
+    // Przychody
     const liquidRevenue = counts.liquids * 45;
-    const liquidCost = counts.liquids * wholesale;
-
     const disposableRevenue = counts.disposables * 80;
     const cartOxvaRevenue = counts.cartOxva * 75;
     const cartXrosRevenue = counts.cartXros * 60;
     const oxvaRevenue = counts.oxvaDevices * 120;
-    const oxvaCost = counts.oxvaDevices * 90;
     const vaporessoRevenue = counts.vaporessoDevices * 110;
+
+    // Koszty
+    const liquidCost = counts.liquids * wholesale;
+    const disposableCost = counts.disposables * 75;
+    const cartOxvaCost = counts.cartOxva * 60;
+    const cartXrosCost = counts.cartXros * 60;
+    const oxvaCost = counts.oxvaDevices * 90;
     const vaporessoCost = counts.vaporessoDevices * 90;
+    const deliveryCost = 30;
 
     const totalRevenue = liquidRevenue + disposableRevenue + cartOxvaRevenue + cartXrosRevenue + oxvaRevenue + vaporessoRevenue;
-    const totalCosts = liquidCost + oxvaCost + vaporessoCost + 30;
+    const totalCosts = liquidCost + disposableCost + cartOxvaCost + cartXrosCost + oxvaCost + vaporessoCost + deliveryCost;
     const profit = totalRevenue - totalCosts;
 
     const byPerson = {};
@@ -376,12 +376,12 @@ async function renderOrders() {
       <hr style="border-color:#2a2a3a;margin:1rem 0">
       <div>
         <b>Liquidy:</b> ${counts.liquids} szt. → sprzedaż ${liquidRevenue} zł / koszt ${liquidCost} zł<br>
-        <b>Jednorazówki:</b> ${counts.disposables} szt. → ${disposableRevenue} zł<br>
-        <b>Cartridge OXVA:</b> ${counts.cartOxva} szt. → ${cartOxvaRevenue} zł<br>
-        <b>Cartridge XROS:</b> ${counts.cartXros} szt. → ${cartXrosRevenue} zł<br>
+        <b>Jednorazówki:</b> ${counts.disposables} szt. → sprzedaż ${disposableRevenue} zł / koszt ${disposableCost} zł<br>
+        <b>Cartridge OXVA:</b> ${counts.cartOxva} szt. → sprzedaż ${cartOxvaRevenue} zł / koszt ${cartOxvaCost} zł<br>
+        <b>Cartridge XROS:</b> ${counts.cartXros} szt. → sprzedaż ${cartXrosRevenue} zł / koszt ${cartXrosCost} zł<br>
         <b>OXVA XLIM GO 2:</b> ${counts.oxvaDevices} szt. → sprzedaż ${oxvaRevenue} zł / koszt ${oxvaCost} zł<br>
         <b>Vaporesso XROS 5 Mini:</b> ${counts.vaporessoDevices} szt. → sprzedaż ${vaporessoRevenue} zł / koszt ${vaporessoCost} zł<br>
-        <b>Dostawa:</b> 30 zł<br>
+        <b>Dostawa:</b> ${deliveryCost} zł<br>
         <b>Razem przychód:</b> ${totalRevenue} zł<br>
         <b>Razem koszty:</b> ${totalCosts} zł<br>
         <b style="color:#3dd68c">Zarobek na czysto: ${profit} zł</b>
