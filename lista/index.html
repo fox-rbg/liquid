@@ -152,6 +152,25 @@ function parseLine(raw) {
 }
 function esc(s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 
+function getLiquidPricePerPiece(totalQty) {
+  if (totalQty >= 100) return 26;
+  if (totalQty >= 50) return 28;
+  if (totalQty >= 20) return 32;
+  if (totalQty >= 10) return 35;
+  if (totalQty >= 5) return 40;
+  if (totalQty >= 3) return 45;
+  return 45;
+}
+
+function countLiquidsFromOrders(orders) {
+  let total = 0;
+  orders.forEach(o => {
+    const qty = parseInt(o.sztuk, 10) || 0;
+    total += qty;
+  });
+  return total;
+}
+
 function unlock() {
   isUnlocked = true;
   document.getElementById("gate").style.display = "none";
@@ -272,7 +291,16 @@ async function renderOrders() {
       </div>
     `).join("");
 
-    // Podsumowanie
+    const totalLiquids = countLiquidsFromOrders(orders);
+    const pricePerPiece = getLiquidPricePerPiece(totalLiquids);
+    const liquidRevenue = totalLiquids * pricePerPiece;
+
+    const cartridgeCost = 60;
+    const disposableCost = 70;
+    const deliveryCost = 30;
+    const totalCosts = cartridgeCost + disposableCost + deliveryCost;
+    const profit = liquidRevenue - totalCosts;
+
     const byPerson = {};
     orders.forEach(o => {
       const person = o.klient || "Nieznany";
@@ -287,6 +315,22 @@ async function renderOrders() {
       lines.forEach(l => summaryHtml += `• ${esc(l)}<br>`);
       summaryHtml += "</div>";
     }
+
+    summaryHtml += `
+      <hr style="border-color:#2a2a3a;margin:1rem 0">
+      <div>
+        <b>Łącznie liquidów:</b> ${totalLiquids} szt.<br>
+        <b>Cena za sztukę:</b> ${pricePerPiece} zł<br>
+        <b>Przychód z liquidów:</b> ${liquidRevenue} zł<br>
+        <b>Koszty:</b><br>
+        • Cartridge: ${cartridgeCost} zł<br>
+        • Jednorazówki: ${disposableCost} zł<br>
+        • Dostawa: ${deliveryCost} zł<br>
+        <b>Razem koszty:</b> ${totalCosts} zł<br>
+        <b style="color:#3dd68c">Zarobek na czysto: ${profit} zł</b>
+      </div>
+    `;
+
     summaryEl.innerHTML = summaryHtml;
     summaryEl.hidden = false;
   } catch(e) {
@@ -307,12 +351,3 @@ document.getElementById("btnClearOrders").onclick = async () => {
         "Prefer": "return=minimal"
       }
     });
-    alert("Zamówienia wyczyszczone.");
-    renderOrders();
-  } catch(e) {
-    alert("Błąd czyszczenia: " + e.message);
-  }
-};
-</script>
-</body>
-</html>
