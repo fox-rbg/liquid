@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-07T12:36:09.574099+00:00",
+  "updated_at": "2026-11-10T14:28:12.445684+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -231,12 +231,6 @@
           ]
         },
         {
-          "name": "Berry Peach",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Blue catton candy",
           "shops": [
             "hype-smoke"
@@ -339,12 +333,6 @@
           ]
         },
         {
-          "name": "Strawberry kiwi",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Strawberry watermelon",
           "shops": [
             "hype-smoke"
@@ -379,7 +367,6 @@
       "by_shop": {
         "hype-smoke": [
           "Berry",
-          "Berry Peach",
           "Blueberry Watermelon",
           "Cherry cola",
           "Dragon fruit banana cherry",
@@ -390,7 +377,6 @@
           "Pineapple passion fruit lime",
           "Pomegranate Lemonade",
           "Purple candy",
-          "Strawberry kiwi",
           "Strawberry ice",
           "Strawberry ice cream",
           "Strawberry watermelon",
@@ -428,12 +414,6 @@
           ]
         },
         {
-          "name": "Apple sour",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Blackberry lemon",
           "shops": [
             "hype-smoke"
@@ -441,12 +421,6 @@
         },
         {
           "name": "Blackcurrant aniseed",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Blue raz ice",
           "shops": [
             "hype-smoke"
           ]
@@ -548,12 +522,6 @@
           ]
         },
         {
-          "name": "Grape",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Grape cherry",
           "shops": [
             "hype-smoke"
@@ -603,12 +571,6 @@
         },
         {
           "name": "PB cloud",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Peach ice",
           "shops": [
             "hype-smoke"
           ]
@@ -739,10 +701,8 @@
         "hype-smoke": [
           "Apple Peach",
           "Apple pear",
-          "Apple sour",
           "Blackberry lemon",
           "Blackcurrant aniseed",
-          "Blue raz ice",
           "Blue razz lemonade",
           "Blueberry",
           "Bluebery raspberry pomergranate",
@@ -755,14 +715,12 @@
           "Double apple",
           "Elf jack",
           "Elfbull ice",
-          "Grape",
           "Grape cherry",
           "Green grape rose",
           "Jasmine raspberry",
           "Kiwi passion guava",
           "Lemon lime",
           "PB cloud",
-          "Peach ice",
           "Pineaple ice",
           "Pineapple colada",
           "Pink grapefruit",
@@ -845,12 +803,6 @@
           ]
         },
         {
-          "name": "Pink Lemonade",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Pistachio Cream",
           "shops": [
             "hype-smoke"
@@ -875,12 +827,6 @@
           ]
         },
         {
-          "name": "Watermelon Bubblegum",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Watermelon Cherry",
           "shops": [
             "hype-smoke"
@@ -897,12 +843,10 @@
           "Dragon Fruit Banana Cherry",
           "Jasmine Raspberry",
           "Lemon Lime",
-          "Pink Lemonade",
           "Pistachio Cream",
           "Spearmint",
           "Strawberry Banana",
           "Strawberry Raspberry Cherry Ice",
-          "Watermelon Bubblegum",
           "Watermelon Cherry"
         ]
       }
@@ -917,12 +861,6 @@
       ],
       "available": [
         {
-          "name": "Sour pineapple ice",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Strawberry banana",
           "shops": [
             "hype-smoke"
@@ -932,7 +870,6 @@
       "unavailable": [],
       "by_shop": {
         "hype-smoke": [
-          "Sour pineapple ice",
           "Strawberry banana"
         ]
       }
@@ -947,25 +884,7 @@
       ],
       "available": [
         {
-          "name": "Blue Ripple",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Green Ripple",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Light Brown Shadow",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Metal Blue",
+          "name": "OXVA XLIM GO 2",
           "shops": [
             "hype-smoke"
           ]
@@ -973,12 +892,7 @@
       ],
       "unavailable": [],
       "by_shop": {
-        "hype-smoke": [
-          "Light Brown Shadow",
-          "Metal Blue",
-          "Green Ripple",
-          "Blue Ripple"
-        ]
+        "hype-smoke": []
       }
     },
     "cartridge_oxva_3ml": {
