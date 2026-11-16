@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13T14:03:36.811904+00:00",
+  "updated_at": "2026-11-16T15:02:17.017891+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -11,12 +11,6 @@
       ],
       "available": [
         {
-          "name": "Peach Mango",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Strawberry Banana",
           "shops": [
             "hype-smoke"
@@ -26,7 +20,6 @@
       "unavailable": [],
       "by_shop": {
         "hype-smoke": [
-          "Peach Mango",
           "Strawberry Banana"
         ]
       }
@@ -41,7 +34,19 @@
       ],
       "available": [
         {
+          "name": "Apple Grape Blueberry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
           "name": "Banana cherry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Berri kiwi",
           "shops": [
             "hype-smoke"
           ]
@@ -53,13 +58,43 @@
           ]
         },
         {
+          "name": "Black grape mint",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
           "name": "Blueberry Pomegranate",
           "shops": [
             "hype-smoke"
           ]
         },
         {
+          "name": "Blueberry raspberry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Cherry Ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
           "name": "Cola Orange",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Cranberry Grape",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Energy Drink",
           "shops": [
             "hype-smoke"
           ]
@@ -84,6 +119,18 @@
         },
         {
           "name": "Gummy Bear",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Ice mojito mint",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Lemon grapefruit",
           "shops": [
             "hype-smoke"
           ]
@@ -119,6 +166,12 @@
           ]
         },
         {
+          "name": "Skittles Candy",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
           "name": "Sour strawberry",
           "shops": [
             "hype-smoke"
@@ -132,6 +185,18 @@
         },
         {
           "name": "Strawberry watermelon",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Sweet Orange Grapefruit",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Tropical Fruits",
           "shops": [
             "hype-smoke"
           ]
@@ -153,18 +218,30 @@
       "by_shop": {
         "hype-smoke": [
           "Banana cherry",
+          "Berri kiwi",
+          "Black grape mint",
+          "Blueberry raspberry",
           "Grape Raspberry Black Plum",
+          "Ice mojito mint",
+          "Lemon grapefruit",
           "Pineapple coconut",
           "Strawberry watermelon",
           "Watermelon Bubble gum",
           "Raspberry Watermelon",
+          "Cranberry Grape",
+          "Tropical Fruits",
           "Grape Melon",
+          "Cherry Ice",
           "Berry Cherry Cocktail",
           "Strawberry Lime",
           "Gummy Bear",
+          "Energy Drink",
+          "Skittles Candy",
           "Turbo mint",
           "Peach Blueberry Ice",
           "Blueberry Pomegranate",
+          "Sweet Orange Grapefruit",
+          "Apple Grape Blueberry",
           "Grape",
           "Cola Orange",
           "Lemon Mint",
@@ -205,12 +282,6 @@
       "available": [
         {
           "name": "Berry",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Berry Peach",
           "shops": [
             "hype-smoke"
           ]
@@ -370,7 +441,6 @@
       "by_shop": {
         "hype-smoke": [
           "Berry",
-          "Berry Peach",
           "Blueberry Watermelon",
           "Cherry cola",
           "Dragon fruit banana cherry",
