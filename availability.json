@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-16T16:29:55.286515+00:00",
+  "updated_at": "2026-11-17T16:26:40.548019+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -365,12 +365,6 @@
           ]
         },
         {
-          "name": "Perfume Lemon",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Pineapple passion fruit lime",
           "shops": [
             "hype-smoke"
@@ -448,7 +442,6 @@
           "Lava Fire",
           "Lemon lime",
           "Peach mango watermelon",
-          "Perfume Lemon",
           "Pineapple passion fruit lime",
           "Pomegranate Lemonade",
           "Purple candy",
@@ -557,12 +550,6 @@
           ]
         },
         {
-          "name": "Double apple",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Elf jack",
           "shops": [
             "hype-smoke"
@@ -576,12 +563,6 @@
         },
         {
           "name": "Fizzy Cherry",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Grape",
           "shops": [
             "hype-smoke"
           ]
@@ -630,12 +611,6 @@
         },
         {
           "name": "PB cloud",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Pineaple ice",
           "shops": [
             "hype-smoke"
           ]
@@ -762,16 +737,13 @@
           "Cherry lemon peach",
           "Cola",
           "Cool mint",
-          "Double apple",
           "Elf jack",
           "Elfbull ice",
-          "Grape",
           "Grape cherry",
           "Green grape rose",
           "Jasmine raspberry",
           "Lemon lime",
           "PB cloud",
-          "Pineaple ice",
           "Pineapple colada",
           "Pink grapefruit",
           "Pink lemonade soda",
@@ -940,7 +912,37 @@
       ],
       "available": [
         {
-          "name": "OXVA XLIM GO 2",
+          "name": "Black Shadow",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Blue Ripple",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Green Ripple",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Light Brown Shadow",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Metal Blue",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Metal Silver",
           "shops": [
             "hype-smoke"
           ]
@@ -948,7 +950,14 @@
       ],
       "unavailable": [],
       "by_shop": {
-        "hype-smoke": []
+        "hype-smoke": [
+          "Metal Silver",
+          "Light Brown Shadow",
+          "Metal Blue",
+          "Black Shadow",
+          "Green Ripple",
+          "Blue Ripple"
+        ]
       }
     },
     "cartridge_oxva_3ml": {
@@ -1263,13 +1272,13 @@
       ],
       "available": [
         {
-          "name": "Alaska Ice",
+          "name": "Banana Taffy Freeze",
           "shops": [
             "hype-smoke"
           ]
         },
         {
-          "name": "Banana Taffy Freeze",
+          "name": "Cheesecake",
           "shops": [
             "hype-smoke"
           ]
@@ -1311,12 +1320,6 @@
           ]
         },
         {
-          "name": "Strawberry B-Burst",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Triple Cherry",
           "shops": [
             "hype-smoke"
@@ -1344,7 +1347,6 @@
       "unavailable": [],
       "by_shop": {
         "hype-smoke": [
-          "Strawberry B-Burst",
           "Banana Taffy Freeze",
           "Wild Cherry Slush",
           "Mexico Mango",
@@ -1353,7 +1355,7 @@
           "Juicy Peach Ice",
           "Omg B Burst",
           "Fruity Cool Strawberry",
-          "Alaska Ice",
+          "Cheesecake",
           "Sour Triple Berry",
           "Triple Cherry",
           "Zesty Grapefruit"
