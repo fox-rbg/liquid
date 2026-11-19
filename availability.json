@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-17T16:26:40.548019+00:00",
+  "updated_at": "2026-11-19T15:23:02.880395+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -347,12 +347,6 @@
           ]
         },
         {
-          "name": "Lemon Grapefruit",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Lemon lime",
           "shops": [
             "hype-smoke"
@@ -457,7 +451,6 @@
           "Watermelon Plum",
           "Blue catton candy",
           "Cola Gummies",
-          "Lemon Grapefruit",
           "Vanilla Cream Tabacco"
         ]
       }
