@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-19T15:23:02.880395+00:00",
+  "updated_at": "2026-11-22T14:12:19.084245+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -329,25 +329,7 @@
           ]
         },
         {
-          "name": "Frozen Grape Soda",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Kiwi Passion Fruit Guava",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Lava Fire",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Lemon lime",
           "shops": [
             "hype-smoke"
           ]
@@ -432,9 +414,7 @@
           "Blueberry Watermelon",
           "Cherry cola",
           "Dragon fruit banana cherry",
-          "Kiwi Passion Fruit Guava",
           "Lava Fire",
-          "Lemon lime",
           "Peach mango watermelon",
           "Pineapple passion fruit lime",
           "Pomegranate Lemonade",
@@ -444,7 +424,6 @@
           "Strawberry watermelon",
           "Watermelon Bubble Gum",
           "Watermelon ice",
-          "Frozen Grape Soda",
           "Cherry Vanilla cream",
           "White Peach Jasmine",
           "Cherry lemon peach",
@@ -477,13 +456,37 @@
           ]
         },
         {
-          "name": "Blackcurrant aniseed",
+          "name": "Apple sour",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Blackberry lemon",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Blackcurrant menthol",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Blue raz ice",
           "shops": [
             "hype-smoke"
           ]
         },
         {
           "name": "Blue Razz Cherry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Blue razz lemonade",
           "shops": [
             "hype-smoke"
           ]
@@ -501,7 +504,19 @@
           ]
         },
         {
+          "name": "Bluebery raspberry pomergranate",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
           "name": "Bluebery rose mint",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Bluebery sour raspberry",
           "shops": [
             "hype-smoke"
           ]
@@ -561,6 +576,12 @@
           ]
         },
         {
+          "name": "Grape",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
           "name": "Grape cherry",
           "shops": [
             "hype-smoke"
@@ -574,6 +595,12 @@
         },
         {
           "name": "Jasmine raspberry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Kiwi passion guava",
           "shops": [
             "hype-smoke"
           ]
@@ -609,6 +636,18 @@
           ]
         },
         {
+          "name": "Peach ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Pineaple ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
           "name": "Pineapple colada",
           "shops": [
             "hype-smoke"
@@ -616,6 +655,12 @@
         },
         {
           "name": "Pink grapefruit",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Pink lemonade",
           "shops": [
             "hype-smoke"
           ]
@@ -705,6 +750,12 @@
           ]
         },
         {
+          "name": "Very menthol",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
           "name": "Watermelon",
           "shops": [
             "hype-smoke"
@@ -722,9 +773,14 @@
         "hype-smoke": [
           "Apple Peach",
           "Apple pear",
-          "Blackcurrant aniseed",
+          "Apple sour",
+          "Blackberry lemon",
+          "Blue raz ice",
+          "Blue razz lemonade",
           "Blueberry",
+          "Bluebery raspberry pomergranate",
           "Bluebery rose mint",
+          "Bluebery sour raspberry",
           "Cherry",
           "Cherry cola",
           "Cherry lemon peach",
@@ -732,13 +788,18 @@
           "Cool mint",
           "Elf jack",
           "Elfbull ice",
+          "Grape",
           "Grape cherry",
           "Green grape rose",
           "Jasmine raspberry",
+          "Kiwi passion guava",
           "Lemon lime",
           "PB cloud",
+          "Peach ice",
+          "Pineaple ice",
           "Pineapple colada",
           "Pink grapefruit",
+          "Pink lemonade",
           "Pink lemonade soda",
           "Raspberry lychee",
           "Rhubarb snoow",
@@ -761,7 +822,9 @@
           "Mr.Blue",
           "Strawberry Razz Lemonade",
           "Strawberry Watermelon",
-          "Fizzy Cherry"
+          "Fizzy Cherry",
+          "Blackcurrant menthol",
+          "Very menthol"
         ]
       }
     },
@@ -1325,12 +1388,6 @@
           ]
         },
         {
-          "name": "Wild Cherry Slush",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Zesty Grapefruit",
           "shops": [
             "hype-smoke"
@@ -1341,7 +1398,6 @@
       "by_shop": {
         "hype-smoke": [
           "Banana Taffy Freeze",
-          "Wild Cherry Slush",
           "Mexico Mango",
           "Frozen Pina Colada",
           "White Gummy Ice",
