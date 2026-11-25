@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-22T14:12:19.084245+00:00",
+  "updated_at": "2026-11-25T16:53:51.872542+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -281,12 +281,6 @@
       ],
       "available": [
         {
-          "name": "Berry",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Blue catton candy",
           "shops": [
             "hype-smoke"
@@ -410,7 +404,6 @@
       "unavailable": [],
       "by_shop": {
         "hype-smoke": [
-          "Berry",
           "Blueberry Watermelon",
           "Cherry cola",
           "Dragon fruit banana cherry",
@@ -838,12 +831,6 @@
       ],
       "available": [
         {
-          "name": "Apple Peach",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Cherry Cola",
           "shops": [
             "hype-smoke"
@@ -863,12 +850,6 @@
         },
         {
           "name": "Dragon Fruit Banana Cherry",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Energy Ice",
           "shops": [
             "hype-smoke"
           ]
@@ -904,12 +885,6 @@
           ]
         },
         {
-          "name": "Strawberry Raspberry Cherry Ice",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Watermelon Cherry",
           "shops": [
             "hype-smoke"
@@ -919,18 +894,15 @@
       "unavailable": [],
       "by_shop": {
         "hype-smoke": [
-          "Apple Peach",
           "Cherry Cola",
           "Cherry Ice",
           "Coconut Candy",
           "Dragon Fruit Banana Cherry",
-          "Energy Ice",
           "Jasmine Raspberry",
           "Lemon Lime",
           "Pistachio Cream",
           "Spearmint",
           "Strawberry Banana",
-          "Strawberry Raspberry Cherry Ice",
           "Watermelon Cherry"
         ]
       }
@@ -1346,18 +1318,6 @@
           ]
         },
         {
-          "name": "Fruity Cool Strawberry",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Juicy Peach Ice",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Mexico Mango",
           "shops": [
             "hype-smoke"
@@ -1365,12 +1325,6 @@
         },
         {
           "name": "Omg B Burst",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Sour Triple Berry",
           "shops": [
             "hype-smoke"
           ]
@@ -1401,11 +1355,8 @@
           "Mexico Mango",
           "Frozen Pina Colada",
           "White Gummy Ice",
-          "Juicy Peach Ice",
           "Omg B Burst",
-          "Fruity Cool Strawberry",
           "Cheesecake",
-          "Sour Triple Berry",
           "Triple Cherry",
           "Zesty Grapefruit"
         ]
@@ -1482,18 +1433,6 @@
           ]
         },
         {
-          "name": "Crazy Blueberry",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Dragon Fruit Ice",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Fizzy Cherry",
           "shops": [
             "hype-smoke"
@@ -1549,12 +1488,6 @@
         },
         {
           "name": "Jager Red Energy",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Lemon Mojito",
           "shops": [
             "hype-smoke"
           ]
@@ -1675,8 +1608,6 @@
           "Blueberry Mint",
           "Breezy Lemon Berry",
           "Cherry Pomegranate Cranberry",
-          "Crazy Blueberry",
-          "Dragon Fruit Ice",
           "Fizzy Cherry",
           "Forest Berries",
           "Grape Berry",
@@ -1687,7 +1618,6 @@
           "Honey Peach",
           "Iced Peach Melon",
           "Jager Red Energy",
-          "Lemon Mojito",
           "Lime Apple Mint",
           "Love66",
           "Lush Ice",
@@ -1719,25 +1649,7 @@
       ],
       "available": [
         {
-          "name": "Frozen pina colada",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Mango slush",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
           "name": "Matcha creeme",
-          "shops": [
-            "hype-smoke"
-          ]
-        },
-        {
-          "name": "Sour gush",
           "shops": [
             "hype-smoke"
           ]
@@ -1746,10 +1658,7 @@
       "unavailable": [],
       "by_shop": {
         "hype-smoke": [
-          "Matcha creeme",
-          "Mango slush",
-          "Frozen pina colada",
-          "Sour gush"
+          "Matcha creeme"
         ]
       }
     }
