@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-25T16:53:51.872542+00:00",
+  "updated_at": "2026-11-28T15:10:55.504110+00:00",
   "products": {
     "fumot": {
       "name": "Liquid Fumot 30ml 20mg",
@@ -1409,6 +1409,12 @@
       ],
       "available": [
         {
+          "name": "Aloe Blackcurrant",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
           "name": "Black Dragon Ice",
           "shops": [
             "hype-smoke"
@@ -1433,6 +1439,24 @@
           ]
         },
         {
+          "name": "Crazy Blueberry",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Dragon Fruit Ice",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Fanta",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
           "name": "Fizzy Cherry",
           "shops": [
             "hype-smoke"
@@ -1440,6 +1464,12 @@
         },
         {
           "name": "Forest Berries",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Frozen Grape",
           "shops": [
             "hype-smoke"
           ]
@@ -1475,6 +1505,12 @@
           ]
         },
         {
+          "name": "Green Apple",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
           "name": "Honey Peach",
           "shops": [
             "hype-smoke"
@@ -1488,6 +1524,18 @@
         },
         {
           "name": "Jager Red Energy",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Kiwi Passion Fruit Guava",
+          "shops": [
+            "hype-smoke"
+          ]
+        },
+        {
+          "name": "Lemon Mojito",
           "shops": [
             "hype-smoke"
           ]
@@ -1604,20 +1652,28 @@
       "unavailable": [],
       "by_shop": {
         "hype-smoke": [
+          "Aloe Blackcurrant",
           "Black Dragon Ice",
           "Blueberry Mint",
           "Breezy Lemon Berry",
           "Cherry Pomegranate Cranberry",
+          "Crazy Blueberry",
+          "Dragon Fruit Ice",
+          "Fanta",
           "Fizzy Cherry",
           "Forest Berries",
+          "Frozen Grape",
           "Grape Berry",
           "Grape Mint",
           "Grape Raspberry",
           "Grape Slush",
           "Grapefruit Refresher",
+          "Green Apple",
           "Honey Peach",
           "Iced Peach Melon",
           "Jager Red Energy",
+          "Kiwi Passion Fruit Guava",
+          "Lemon Mojito",
           "Lime Apple Mint",
           "Love66",
           "Lush Ice",
